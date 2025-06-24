@@ -1,0 +1,94 @@
+@charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+html,
+body {
+  font-family: Pretendard;
+}
+
+.flatpickr-current-month {
+  flex-direction: row-reverse;
+}
+
+.flatpickr-current-month .numInputWrapper {
+  padding: 0 30px 0 0;
+  width: 110px;
+}
+
+.flatpickr-current-month .numInputWrapper:after {
+  content: "년";
+  display: block;
+  position: absolute;
+  top: 3px;
+  right: 18px;
+  font-size: 1.5625rem;
+  font-weight: 700;
+}
+
+.navbar-vertical .dropdown-indicator .dropdown-indicator-icon-wrapper {
+  margin-right: 6px;
+}
+
+.main nav.navbar.navbar-vertical .nav-item {
+  margin-top: 8px;
+}
+
+.main nav.navbar.navbar-vertical .nav-item .nav-link .nav-link-text {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.btn {
+  white-space: noWrap;
+}
+
+.table {
+  font-size: 15px;
+}
+
+.table > :not(caption) > * > * {
+  vertical-align: middle;
+}
+
+.swal2-title {
+  margin-bottom: 8px;
+  padding: 0;
+  font-size: 16px;
+}
+
+.swal2-popup {
+  width: 320px;
+  padding: 36px 24px;
+  font-family: Pretendard;
+}
+
+.swal2-confirm {
+  min-width: 100px;
+  margin: 0;
+  padding: 8px;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.one-title {
+  margin-bottom: 20px;
+}
+.one-title h2 {
+  font-size: 24px;
+}
+.one-contents-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 24px 0 0 0;
+}
+.one-contents-button .btn {
+  min-width: 200px;
+}
+.one-form form > .row,
+.one-form > .row {
+  margin-top: -16px;
+}
+.one-form .form-label {
+  padding: 24px 0 8px 0;
+  font-size: 14px;
+}/*# sourceMappingURL=common.css.map */
