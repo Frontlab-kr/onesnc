@@ -102,7 +102,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav01"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -147,7 +146,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav02"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -190,7 +188,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav03"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -254,7 +251,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav04"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -318,7 +314,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav05"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -354,7 +349,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav06"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -397,7 +391,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav07"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -447,7 +440,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav08"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -483,7 +475,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav09"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -610,12 +601,12 @@
                 class="nav-link lh-1 pe-0"
                 id="navbarDropdownUser"
                 href="#!"
-                role="button"
                 data-bs-toggle="dropdown"
                 data-bs-auto-close="outside"
                 aria-haspopup="true"
                 aria-expanded="false"
               >
+                frontadmin
               </a>
               <div
                 class="dropdown-menu dropdown-menu-end navbar-dropdown-caret py-0 dropdown-profile shadow border"
@@ -654,66 +645,96 @@
 
       <div class="content">
         <div class="one-title">
-          <h2 class="mb-2 lh-sm">추가가입항목</h2>
+          <h2 class="mb-2 lh-sm">팝업관리</h2>
         </div>
-        <div class="mb-4">
-          <button
-            class="btn btn-subtle-primary rounded-pill me-1 mb-1"
-            type="button"
-          >
-            <span class="fas fa-plus me-2" data-fa-transform="shrink-3"></span
-            >생년월일
-          </button>
-          <button
-            class="btn btn-subtle-primary rounded-pill me-1 mb-1"
-            type="button"
-          >
-            <span class="fas fa-plus me-2" data-fa-transform="shrink-3"></span
-            >주소
-          </button>
-          <button
-            class="btn btn-subtle-primary rounded-pill me-1 mb-1"
-            type="button"
-          >
-            <span class="fas fa-plus me-2" data-fa-transform="shrink-3"></span
-            >사용자정의항목
+        <div class="d-flex justify-content-end mt-4">
+          <button type="button" class="btn btn-primary" style="width: 80px">
+            추가
           </button>
         </div>
-        <div class="card">
+        <div class="card mt-3">
           <div class="card-body">
-            <div class="one-contents">
-              <div class="one-form">
-                <form name="form" method="post">
-                  <div class="table-responsive">
-                    <table class="table" id="sortable-view">
-                      <thead>
-                        <tr>
-                          <td></td>
-                          <td>필수</td>
-                          <td>항목명</td>
-                          <td>노출명</td>
-                          <td>설명</td>
-                        </tr>
-                      </thead>
-                      <tbody></tbody>
-                    </table>
-                  </div>
-                </form>
-              </div>
+            <div class="table-responsive scrollbar">
+              <table class="table text-center" id="tb-popup-list">
+                <thead>
+                  <tr>
+                    <th>NO</th>
+                    <th>팝업명</th>
+                    <th>등록일</th>
+                    <th>사용여부</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2</td>
+                    <td onclick="goEditForm('POPUP_00002');" role="button">
+                      qrtest
+                    </td>
+                    <td>2024.07.18</td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-phoenix-success"
+                        onclick="chgUseYn('POPUP_00002','N');"
+                      >
+                        사용
+                      </button>
+                    </td>
+                    <td>
+                      <div class="d-flex justify-content-center gap-2">
+                        <button
+                          type="button"
+                          class="btn btn-sm btn-phoenix-secondary"
+                          onclick="showPreview('POPUP_00002');"
+                        >
+                          <i class="fa fa-image me-1"></i> 미리보기</button
+                        ><button
+                          type="button"
+                          class="btn btn-sm btn-phoenix-secondary"
+                          onclick="deletePopup('POPUP_00002');"
+                        >
+                          <i class="fa fa-trash me-1"></i> 삭제
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td onclick="goEditForm('POPUP_00001');" role="button">
+                      단축근무 안내
+                    </td>
+                    <td>2022.07.25</td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-phoenix-success"
+                        onclick="chgUseYn('POPUP_00001','N');"
+                      >
+                        사용
+                      </button>
+                    </td>
+                    <td>
+                      <div class="d-flex justify-content-center gap-2">
+                        <button
+                          type="button"
+                          class="btn btn-sm btn-phoenix-secondary"
+                          onclick="showPreview('POPUP_00001');"
+                        >
+                          <i class="fa fa-image me-1"></i> 미리보기</button
+                        ><button
+                          type="button"
+                          class="btn btn-sm btn-phoenix-secondary"
+                          onclick="deletePopup('POPUP_00001');"
+                        >
+                          <i class="fa fa-trash me-1"></i> 삭제
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-          </div>
-        </div>
-
-        <div class="one-contents-button">
-          <div class="one-contents-button-start"></div>
-          <div class="one-contents-button-end">
-            <button
-              type="button"
-              class="btn btn-lg btn-primary"
-              onclick="save();"
-            >
-              적용
-            </button>
           </div>
         </div>
       </div>

@@ -102,7 +102,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav01"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -147,7 +146,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav02"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -190,7 +188,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav03"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -254,7 +251,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav04"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -318,7 +314,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav05"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -354,7 +349,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav06"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -397,7 +391,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav07"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -447,7 +440,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav08"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -483,7 +475,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav09"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -610,12 +601,12 @@
                 class="nav-link lh-1 pe-0"
                 id="navbarDropdownUser"
                 href="#!"
-                role="button"
                 data-bs-toggle="dropdown"
                 data-bs-auto-close="outside"
                 aria-haspopup="true"
                 aria-expanded="false"
               >
+                frontadmin
               </a>
               <div
                 class="dropdown-menu dropdown-menu-end navbar-dropdown-caret py-0 dropdown-profile shadow border"
@@ -654,66 +645,172 @@
 
       <div class="content">
         <div class="one-title">
-          <h2 class="mb-2 lh-sm">추가가입항목</h2>
-        </div>
-        <div class="mb-4">
-          <button
-            class="btn btn-subtle-primary rounded-pill me-1 mb-1"
-            type="button"
-          >
-            <span class="fas fa-plus me-2" data-fa-transform="shrink-3"></span
-            >생년월일
-          </button>
-          <button
-            class="btn btn-subtle-primary rounded-pill me-1 mb-1"
-            type="button"
-          >
-            <span class="fas fa-plus me-2" data-fa-transform="shrink-3"></span
-            >주소
-          </button>
-          <button
-            class="btn btn-subtle-primary rounded-pill me-1 mb-1"
-            type="button"
-          >
-            <span class="fas fa-plus me-2" data-fa-transform="shrink-3"></span
-            >사용자정의항목
-          </button>
+          <h2 class="mb-3 lh-sm">학습자정보</h2>
+          <h4>과정명 : 온라인 학위 과정</h4>
         </div>
         <div class="card">
           <div class="card-body">
             <div class="one-contents">
               <div class="one-form">
-                <form name="form" method="post">
-                  <div class="table-responsive">
-                    <table class="table" id="sortable-view">
-                      <thead>
-                        <tr>
-                          <td></td>
-                          <td>필수</td>
-                          <td>항목명</td>
-                          <td>노출명</td>
-                          <td>설명</td>
-                        </tr>
-                      </thead>
-                      <tbody></tbody>
-                    </table>
+                <form>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label class="form-label">수강상태 </label>
+                      <div>
+                        <select class="form-select">
+                          <option>전체</option>
+                          <option>수강중</option>
+                          <option>수강종료</option>
+                          <option>수강취소</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">이수상태 </label>
+                      <div>
+                        <select class="form-select">
+                          <option>전체</option>
+                          <option>이수</option>
+                          <option>미이수</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">ID 또는 이름</label>
+                      <div>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="ID 또는 이름을 입력하세요"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-end mt-4">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      style="width: 80px"
+                    >
+                      검색
+                    </button>
                   </div>
                 </form>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="one-contents-button">
-          <div class="one-contents-button-start"></div>
-          <div class="one-contents-button-end">
-            <button
-              type="button"
-              class="btn btn-lg btn-primary"
-              onclick="save();"
-            >
-              적용
-            </button>
+        <div class="card mt-4">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table text-center" id="tb_stu_list">
+                <thead>
+                  <tr>
+                    <th>번호</th>
+                    <th>수강생</th>
+                    <th>수강기간</th>
+                    <th>수강상태</th>
+                    <th>이수상태</th>
+                    <th>진도율</th>
+                    <th>수강연장</th>
+                    <th>수료구분</th>
+                    <th>수료증</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2</td>
+                    <td>test008(test008)</td>
+                    <td>2022.07.25~2022.07.31</td>
+                    <td>수강종료</td>
+                    <td>이수</td>
+                    <td>
+                      <div
+                        class="progress"
+                        role="button"
+                        onclick="stuInfoMd.showProgressDetail('test008','1')"
+                      >
+                        <div class="progress-bar" style="width: 100%">
+                          <span>100%</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-phoenix-secondary"
+                        onclick="changeStudyDateMd.init('CC_00003','test008','1');"
+                      >
+                        수강연장
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-phoenix-secondary"
+                        onclick="changeStatusMd.init('CC_00003','test008','1','C');"
+                      >
+                        수강/이수상태변경
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-phoenix-secondary"
+                        onclick="stuInfoMd.showCertificates('CC_00003','1','test008')"
+                      >
+                        수료증
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>test007(테스트에요)</td>
+                    <td>2022.07.25~2022.07.31</td>
+                    <td>수강종료</td>
+                    <td>이수</td>
+                    <td>
+                      <div
+                        class="progress"
+                        role="button"
+                        onclick="stuInfoMd.showProgressDetail('test007','1')"
+                      >
+                        <div class="progress-bar bg-teal" style="width: 100%">
+                          <span>100%</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-phoenix-secondary"
+                        onclick="changeStudyDateMd.init('CC_00003','test007','1');"
+                      >
+                        수강연장
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-phoenix-secondary"
+                        onclick="changeStatusMd.init('CC_00003','test007','1','C');"
+                      >
+                        수강/이수상태변경
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-phoenix-secondary"
+                        onclick="stuInfoMd.showCertificates('CC_00003','1','test007')"
+                      >
+                        수료증
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>

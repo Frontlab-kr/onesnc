@@ -58,6 +58,35 @@ body {
   font-size: 16px;
   line-height: 1;
 }
+.table-responsive .table {
+  white-space: noWrap;
+}
+
+.progress {
+  --phoenix-progress-height: 15px;
+  &-bar {
+    line-height: 1;
+  }
+}
+.nav-underline .nav-link {
+  font-size: 14px;
+}
+.dz-message-text {
+  font-size: 14px;
+}
+.theme-wizard .nav-item .nav-link.done .nav-item-circle {
+  background-color: #007899 !important;
+  color: #fff;
+  border-color: #007899;
+}
+.theme-wizard
+  .nav-item:not(.theme-wizard .nav-item:last-child)
+  .nav-link.complete:before {
+  background-color: #007899 !important;
+}
+.theme-wizard .nav-item .nav-link.done {
+  color: var(--phoenix-tertiary-color);
+}
 
 .one {
   &-title {
@@ -72,6 +101,11 @@ body {
       align-items: center;
       justify-content: space-between;
       margin: 24px 0 0 0;
+      &-start,
+      &-end {
+        display: flex;
+        gap: 16px;
+      }
       .btn {
         min-width: 200px;
       }

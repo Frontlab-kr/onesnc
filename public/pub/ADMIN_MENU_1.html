@@ -952,6 +952,28 @@
         </div>
       </div>
 
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          position: fixed;
+          right: 0;
+          bottom: 0;
+          padding: 20px;
+          background: rgba(0, 0, 0, 0.3);
+        "
+      >
+        <button
+          class="btn btn-phoenix-primary btn-sm"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#modal01"
+        >
+          등록
+        </button>
+      </div>
+
       <div class="modal fade" id="modal01" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-lg">
           <div class="modal-content">
@@ -1075,7 +1097,7 @@
     <script src="../assets/js/phoenix.js"></script>
     <script>
       $(document).ready(function () {
-        $('#summernote').summernote({
+        $('.summernote').summernote({
           lang: 'ko-KR',
           height: 300,
         });

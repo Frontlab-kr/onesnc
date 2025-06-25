@@ -616,6 +616,7 @@
                 aria-haspopup="true"
                 aria-expanded="false"
               >
+                frontadmin
               </a>
               <div
                 class="dropdown-menu dropdown-menu-end navbar-dropdown-caret py-0 dropdown-profile shadow border"
@@ -654,49 +655,166 @@
 
       <div class="content">
         <div class="one-title">
-          <h2 class="mb-2 lh-sm">추가가입항목</h2>
-        </div>
-        <div class="mb-4">
-          <button
-            class="btn btn-subtle-primary rounded-pill me-1 mb-1"
-            type="button"
-          >
-            <span class="fas fa-plus me-2" data-fa-transform="shrink-3"></span
-            >생년월일
-          </button>
-          <button
-            class="btn btn-subtle-primary rounded-pill me-1 mb-1"
-            type="button"
-          >
-            <span class="fas fa-plus me-2" data-fa-transform="shrink-3"></span
-            >주소
-          </button>
-          <button
-            class="btn btn-subtle-primary rounded-pill me-1 mb-1"
-            type="button"
-          >
-            <span class="fas fa-plus me-2" data-fa-transform="shrink-3"></span
-            >사용자정의항목
-          </button>
+          <h2 class="mb-2 lh-sm">팝업관리</h2>
         </div>
         <div class="card">
           <div class="card-body">
             <div class="one-contents">
               <div class="one-form">
-                <form name="form" method="post">
-                  <div class="table-responsive">
-                    <table class="table" id="sortable-view">
-                      <thead>
-                        <tr>
-                          <td></td>
-                          <td>필수</td>
-                          <td>항목명</td>
-                          <td>노출명</td>
-                          <td>설명</td>
-                        </tr>
-                      </thead>
-                      <tbody></tbody>
-                    </table>
+                <form>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label class="form-label">모바일 </label>
+                      <div class="d-flex gap-4">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            checked="checked"
+                          />
+                          <label class="form-check-label" for="">
+                            윈도우팝업
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" />
+                          <label class="form-check-label" for="">
+                            레이어팝업
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">
+                        팝업명 <span class="text-danger">*</span>
+                      </label>
+                      <div>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label"> 팝업사이즈 </label>
+                      <div class="d-flex gap-2">
+                        <div class="input-group">
+                          <span class="input-group-text">가로</span>
+                          <input
+                            class="form-control text-end"
+                            type="text"
+                            placeholder="px"
+                          />
+                        </div>
+                        <div class="input-group">
+                          <span class="input-group-text">세로</span>
+                          <input
+                            class="form-control text-end"
+                            type="text"
+                            placeholder="px"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label"> 창위치 </label>
+                      <div class="d-flex gap-2">
+                        <div class="input-group">
+                          <span class="input-group-text">TOP</span>
+                          <input
+                            class="form-control text-end"
+                            type="text"
+                            placeholder="px"
+                          />
+                        </div>
+                        <div class="input-group">
+                          <span class="input-group-text">LEFT</span>
+                          <input
+                            class="form-control text-end"
+                            type="text"
+                            placeholder="px"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">기간 </label>
+                      <div class="d-flex gap-4">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            checked="checked"
+                          />
+                          <label class="form-check-label" for="">
+                            기간 지정
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" />
+                          <label class="form-check-label" for="">
+                            기간 지정안함
+                          </label>
+                        </div>
+                      </div>
+                      <input
+                        class="form-control datetimepicker flatpickr-input"
+                        id="timepicker2"
+                        type="text"
+                        data-options='{"mode":"range","dateFormat":"Y/m/d","disableMobile":true}'
+                        readonly="readonly"
+                      />
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">오늘하루 보지 않기 사용</label>
+                      <div class="d-flex gap-4">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            checked="checked"
+                          />
+                          <label class="form-check-label" for=""> 사용 </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" />
+                          <label class="form-check-label" for="">
+                            사용안함
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">팝업 사용 </label>
+                      <div class="d-flex gap-4">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            checked="checked"
+                          />
+                          <label class="form-check-label" for=""> 사용 </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" />
+                          <label class="form-check-label" for="">
+                            사용안함
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <label class="form-label">내용</label>
+                      <div>
+                        <textarea
+                          class="summernote required"
+                          id="summernote"
+                          name="summernote"
+                          style="height: 400px"
+                        ></textarea>
+                      </div>
+                    </div>
                   </div>
                 </form>
               </div>
@@ -707,13 +825,10 @@
         <div class="one-contents-button">
           <div class="one-contents-button-start"></div>
           <div class="one-contents-button-end">
-            <button
-              type="button"
-              class="btn btn-lg btn-primary"
-              onclick="save();"
-            >
-              적용
+            <button type="button" class="btn btn-lg btn-outline-primary">
+              취소
             </button>
+            <button type="button" class="btn btn-lg btn-primary">등록</button>
           </div>
         </div>
       </div>

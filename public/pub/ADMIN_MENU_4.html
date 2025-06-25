@@ -616,6 +616,7 @@
                 aria-haspopup="true"
                 aria-expanded="false"
               >
+                frontadmin
               </a>
               <div
                 class="dropdown-menu dropdown-menu-end navbar-dropdown-caret py-0 dropdown-profile shadow border"
@@ -654,67 +655,41 @@
 
       <div class="content">
         <div class="one-title">
-          <h2 class="mb-2 lh-sm">추가가입항목</h2>
-        </div>
-        <div class="mb-4">
-          <button
-            class="btn btn-subtle-primary rounded-pill me-1 mb-1"
-            type="button"
-          >
-            <span class="fas fa-plus me-2" data-fa-transform="shrink-3"></span
-            >생년월일
-          </button>
-          <button
-            class="btn btn-subtle-primary rounded-pill me-1 mb-1"
-            type="button"
-          >
-            <span class="fas fa-plus me-2" data-fa-transform="shrink-3"></span
-            >주소
-          </button>
-          <button
-            class="btn btn-subtle-primary rounded-pill me-1 mb-1"
-            type="button"
-          >
-            <span class="fas fa-plus me-2" data-fa-transform="shrink-3"></span
-            >사용자정의항목
-          </button>
+          <h2 class="mb-2 lh-sm">그룹관리</h2>
         </div>
         <div class="card">
           <div class="card-body">
             <div class="one-contents">
               <div class="one-form">
-                <form name="form" method="post">
-                  <div class="table-responsive">
-                    <table class="table" id="sortable-view">
-                      <thead>
-                        <tr>
-                          <td></td>
-                          <td>필수</td>
-                          <td>항목명</td>
-                          <td>노출명</td>
-                          <td>설명</td>
-                        </tr>
-                      </thead>
-                      <tbody></tbody>
-                    </table>
+                <form>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label class="form-label">그룹명</label>
+                      <div>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="그룹명을 입력해주세요"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-end mt-4">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      style="width: 80px"
+                    >
+                      등록
+                    </button>
                   </div>
                 </form>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="one-contents-button">
-          <div class="one-contents-button-start"></div>
-          <div class="one-contents-button-end">
-            <button
-              type="button"
-              class="btn btn-lg btn-primary"
-              onclick="save();"
-            >
-              적용
-            </button>
-          </div>
+        <div class="card mt-4">
+          <div class="card-body">Nestable jQuery Plugin</div>
         </div>
       </div>
 
