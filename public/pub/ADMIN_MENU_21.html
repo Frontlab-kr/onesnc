@@ -37,6 +37,8 @@
       href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap"
       rel="stylesheet"
     />
+    <link href="../vendors/summernote/summernote.min.css" rel="stylesheet" />
+    <link href="../vendors/sweetalert2/sweetalert2.css" rel="stylesheet" />
     <link href="../vendors/flatpickr/flatpickr.min.css" rel="stylesheet" />
     <link href="../vendors/simplebar/simplebar.min.css" rel="stylesheet" />
     <link
@@ -100,7 +102,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav01"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -145,7 +146,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav02"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -188,7 +188,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav03"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -252,7 +251,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav04"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -316,7 +314,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav05"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -352,7 +349,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav06"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -395,7 +391,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav07"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -445,7 +440,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav08"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -481,7 +475,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav09"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -608,7 +601,6 @@
                 class="nav-link lh-1 pe-0"
                 id="navbarDropdownUser"
                 href="#!"
-                role="button"
                 data-bs-toggle="dropdown"
                 data-bs-auto-close="outside"
                 aria-haspopup="true"
@@ -652,141 +644,253 @@
       </nav>
 
       <div class="content">
+        <div class="one-title">
+          <h2 class="mb-2 lh-sm">퀴즈 등록</h2>
+        </div>
         <div class="card">
           <div class="card-body">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">page</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <a href="ADMIN_MENU_1.html"> ADMIN_MENU_1 </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="ADMIN_MENU_2.html"> ADMIN_MENU_2 </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="ADMIN_MENU_3.html"> ADMIN_MENU_3 </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="ADMIN_MENU_5_1.html"> ADMIN_MENU_5_1 </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="ADMIN_MENU_7_1.html"> ADMIN_MENU_7_1 </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="ADMIN_MENU_21.html"> ADMIN_MENU_21 </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="ADMIN_MENU_9.html"> ADMIN_MENU_9 </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="ADMIN_MENU_9_1.html"> ADMIN_MENU_9_1 </a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="one-contents">
+              <div class="one-form">
+                <form>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label class="form-label">퀴즈명</label>
+                      <div>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="퀴즈명을 입력하세요"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-end gap-2 mt-4">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      style="width: 80px"
+                    >
+                      등록
+                    </button>
+                    <button class="btn btn-outline-primary" type="button">
+                      취소
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="modal fade" id="modal01" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">이용약관</h5>
-              <button
-                class="btn btn-close p-1"
-                type="button"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <div class="one-form">
-                <div class="row">
-                  <div class="col-md-12">
-                    <label class="form-label">제목</label>
-                    <div>
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder=""
-                        name="siteName"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <label class="form-label">푸터</label>
-                    <div class="d-flex gap-4">
-                      <div class="form-check">
-                        <input
-                          class="form-check-input"
-                          id="footerYn01"
-                          type="radio"
-                          name="footerYn"
-                          value="Y"
-                        />
-                        <label class="form-check-label" for="footerYn01"
-                          >사용</label
-                        >
+        <div class="row mt-3">
+          <div class="col-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="one-contents">
+                  <div class="one-form">
+                    <form
+                      id="fm_site_info"
+                      enctype="multipart/form-data"
+                      method="post"
+                    >
+                      <button
+                        class="btn btn-subtle-primary w-100"
+                        type="button"
+                      >
+                        문항추가
+                      </button>
+                      <div class="row mt-4">
+                        <div class="col-md-12">
+                          <div class="d-flex flex-column gap-2">
+                            <div class="d-flex align-items-center gap-1">
+                              <input
+                                type="text"
+                                class="form-control"
+                                name="question"
+                              />
+                              <button
+                                class="border-0 bg-transparent"
+                                type="button"
+                              >
+                                <i
+                                  class="uil uil-setting fs-6 text-secondary-emphasis"
+                                ></i>
+                              </button>
+                            </div>
+                            <div class="d-flex align-items-center gap-1">
+                              <input
+                                type="text"
+                                class="form-control"
+                                name="question"
+                              />
+                              <button
+                                class="border-0 bg-transparent"
+                                type="button"
+                              >
+                                <i
+                                  class="uil uil-setting fs-6 text-secondary-emphasis"
+                                ></i>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div class="form-check">
-                        <input
-                          class="form-check-input"
-                          id="footerYn02"
-                          type="radio"
-                          name="footerYn"
-                          value="N"
-                          checked="checked"
-                        />
-                        <label class="form-check-label" for="footerYn02"
-                          >사용안함</label
-                        >
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <label class="form-label">내용</label>
-                    <div>
-                      <textarea
-                        class="summernote required"
-                        id="summernote"
-                        name="summernote"
-                        style="height: 400px"
-                      ></textarea>
-                    </div>
+                    </form>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="modal-footer">
-              <button class="btn btn-primary" type="button">등록</button
-              ><button
-                class="btn btn-outline-primary"
-                type="button"
-                data-bs-dismiss="modal"
-              >
-                취소
-              </button>
+          </div>
+          <div class="col-8">
+            <div class="card">
+              <div class="card-body">
+                <div class="one-contents">
+                  <div class="one-form">
+                    <form
+                      id="fm_site_info"
+                      enctype="multipart/form-data"
+                      method="post"
+                    >
+                      <div class="row">
+                        <div class="col-md-12">
+                          <label class="form-label">질문명 </label>
+                          <div>
+                            <input
+                              type="text"
+                              class="form-control"
+                              name="question"
+                              placeholder="질문을 입력하세요"
+                              v-model="question.question"
+                            />
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <label class="form-label">지문명</label>
+                          <div>
+                            <textarea
+                              class="form-control"
+                              rows="5"
+                              cols="5"
+                              name="addText"
+                              v-model="question.addText"
+                            ></textarea>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <label class="form-label">퀴즈유형 </label>
+                          <div class="d-flex gap-4">
+                            <div class="form-check">
+                              <input
+                                type="radio"
+                                class="form-check-input"
+                                name="questionType"
+                                value="CHOICE"
+                                v-model="question.questionType"
+                                v-on:change="quizTypeChange"
+                                id="questionType01"
+                                checked
+                              />
+                              <label
+                                class="form-check-label"
+                                for="questionType01"
+                                >객관식</label
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div
+                            class="d-flex align-items-center justify-content-between mt-2 mb-3"
+                          >
+                            <label class="form-label p-0 mt-1">문항입력</label>
+                            <button
+                              type="button"
+                              class="btn btn-sm btn-phoenix-success"
+                              v-on:click="addExample"
+                            >
+                              문항추가
+                            </button>
+                          </div>
+                          <div class="d-flex flex-column gap-2">
+                            <div class="d-flex align-items-center gap-3">
+                              <input type="radio" class="form-check-input" />
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder=""
+                              />
+                              <button
+                                class="btn-close"
+                                type="button"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                              <input type="radio" class="form-check-input" />
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder=""
+                              />
+                              <button
+                                class="btn-close"
+                                type="button"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                              <input type="radio" class="form-check-input" />
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder=""
+                              />
+                              <button
+                                class="btn-close"
+                                type="button"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                              <input type="radio" class="form-check-input" />
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder=""
+                              />
+                              <button
+                                class="btn-close"
+                                type="button"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <label class="form-label">문제풀이 해설</label>
+                          <div>
+                            <textarea
+                              class="form-control"
+                              rows="5"
+                              cols="5"
+                              v-model="question.questionComment"
+                            ></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+        <div class="one-contents-button">
+          <div class="one-contents-button-start"></div>
+          <div class="one-contents-button-end">
+            <button type="button" class="btn btn-lg btn-outline-primary">
+              취소
+            </button>
+            <button type="button" class="btn btn-lg btn-primary">등록</button>
           </div>
         </div>
       </div>
@@ -813,6 +917,10 @@
     <!-- ===============================================-->
     <!--    JavaScripts-->
     <!-- ===============================================-->
+    <script src="../vendors/jqeury/jquery.min.js"></script>
+    <script src="../vendors/sweetalert2/sweetalert2.min.js"></script>
+    <script src="../vendors/summernote/summernote.min.js"></script>
+    <script src="../vendors/summernote/summernote-ko-KR.min.js"></script>
     <script src="../vendors/popper/popper.min.js"></script>
     <script src="../vendors/bootstrap/bootstrap.min.js"></script>
     <script src="../vendors/anchorjs/anchor.min.js"></script>
@@ -824,33 +932,6 @@
     <script src="../vendors/dayjs/dayjs.min.js"></script>
     <script src="../vendors/flatpickr/flatpickr.min.js"></script>
     <script src="../assets/js/phoenix.js"></script>
-
-    <!-- 임시 -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.9.1/summernote.min.js"
-      integrity="sha512-07bR+AJ2enmNU5RDrZkqMfVq06mQHgFxcmWN/hNSNY4E5SgYNOmTVqo/HCzrSxBhWU8mx3WB3ZJOixA9cRnCdA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.9.1/lang/summernote-ko-KR.min.js"
-      integrity="sha512-npFeJw8MO1QVbeFuD7rqVR1CpAbOnUMoYnZIxDbz58biKU52Unq7Av3cn+SZ2KD4yOLWj4bOcjIV1+d4aEXAyg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.9.1/summernote.min.css"
-      integrity="sha512-342i6c96DulZwyEUbzx5CToh/lcow8B+AJKxQBix9y7C7fueaL3kMuQAolpHKJ+yUD2uxqyZMsChru+bvZuWUg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
     <script>
       $(document).ready(function () {
         $('.summernote').summernote({
@@ -860,7 +941,6 @@
       });
     </script>
 
-    <!-- 기존 -->
     <script>
       var LOGIN_USER_ID = 'frontadmin';
       var LOGIN_USER_TYPE = 'MASTER_ADMIN';
