@@ -12,7 +12,7 @@
   /* -------------------------------------------------------------------------- */
   /*                                    Utils                                   */
   /* -------------------------------------------------------------------------- */
-  const docReady = fn => {
+  const docReady = (fn) => {
     // see if DOM is already available
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', fn);
@@ -27,11 +27,11 @@
     return mode === 'light' ? lightColor : darkColor;
   };
 
-  const resize = fn => window.addEventListener('resize', fn);
+  const resize = (fn) => window.addEventListener('resize', fn);
 
-  const isIterableArray = array => Array.isArray(array) && !!array.length;
+  const isIterableArray = (array) => Array.isArray(array) && !!array.length;
 
-  const camelize = str => {
+  const camelize = (str) => {
     const text = str.replace(/[-_\s.]+(.)?/g, (_, c) =>
       c ? c.toUpperCase() : ''
     );
@@ -48,7 +48,7 @@
 
   /* ----------------------------- Colors function ---------------------------- */
 
-  const hexToRgb = hexValue => {
+  const hexToRgb = (hexValue) => {
     let hex;
     hexValue.indexOf('#') === 0
       ? (hex = hexValue.substring(1))
@@ -62,7 +62,7 @@
       ? [
           parseInt(result[1], 16),
           parseInt(result[2], 16),
-          parseInt(result[3], 16)
+          parseInt(result[3], 16),
         ]
       : null;
   };
@@ -84,7 +84,7 @@
     el.classList.add(className);
   };
 
-  const getOffset = el => {
+  const getOffset = (el) => {
     const rect = el.getBoundingClientRect();
     const scrollLeft =
       window.pageXOffset || document.documentElement.scrollLeft;
@@ -92,7 +92,7 @@
     return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
   };
 
-  const isScrolledIntoView = el => {
+  const isScrolledIntoView = (el) => {
     let top = el.offsetTop;
     let left = el.offsetLeft;
     const width = el.offsetWidth;
@@ -115,7 +115,7 @@
         top < window.pageYOffset + window.innerHeight &&
         left < window.pageXOffset + window.innerWidth &&
         top + height > window.pageYOffset &&
-        left + width > window.pageXOffset
+        left + width > window.pageXOffset,
     };
   };
 
@@ -125,10 +125,10 @@
     md: 768,
     lg: 992,
     xl: 1200,
-    xxl: 1540
+    xxl: 1540,
   };
 
-  const getBreakpoint = el => {
+  const getBreakpoint = (el) => {
     const classes = el && el.classList.value;
     let breakpoint;
     if (classes) {
@@ -136,7 +136,7 @@
         breakpoints[
           classes
             .split(' ')
-            .filter(cls => cls.includes('navbar-expand-'))
+            .filter((cls) => cls.includes('navbar-expand-'))
             .pop()
             .split('-')
             .pop()
@@ -152,18 +152,18 @@
     document.cookie = `${name}=${value};expires=${expires}`;
   };
 
-  const getCookie = name => {
+  const getCookie = (name) => {
     const keyValue = document.cookie.match(`(^|;) ?${name}=([^;]*)(;|$)`);
     return keyValue ? keyValue[2] : keyValue;
   };
 
   const settings = {
     tinymce: {
-      theme: 'oxide'
+      theme: 'oxide',
     },
     chart: {
-      borderColor: 'rgba(255, 255, 255, 0.8)'
-    }
+      borderColor: 'rgba(255, 255, 255, 0.8)',
+    },
   };
 
   /* -------------------------- Chart Initialization -------------------------- */
@@ -204,7 +204,7 @@
     );
   };
 
-  const getPastDates = duration => {
+  const getPastDates = (duration) => {
     let days;
 
     switch (duration) {
@@ -278,7 +278,7 @@
     getDates,
     getPastDates,
     getRandomNumber,
-    getSystemTheme
+    getSystemTheme,
     // handleThemeDropdownIcon
   };
 
@@ -287,7 +287,7 @@
     const iconCopiedToast = document.getElementById('icon-copied-toast');
     const iconCopiedToastInstance = new bootstrap.Toast(iconCopiedToast);
 
-    componentCards.forEach(card => {
+    componentCards.forEach((card) => {
       const copyCodeBtn = card.querySelector('.copy-code-btn');
       const copyCodeEl = card.querySelector('.code-to-copy');
       const previewBtn = card.querySelector('.preview-btn');
@@ -295,7 +295,7 @@
       const collapseInstance = bootstrap.Collapse.getOrCreateInstance(
         collapseElement,
         {
-          toggle: false
+          toggle: false,
         }
       );
 
@@ -324,7 +324,7 @@
 
   const anchorJSInit = () => {
     const anchors = new window.AnchorJS({
-      icon: '#'
+      icon: '#',
     });
     anchors.add('[data-anchor]');
   };
@@ -336,12 +336,12 @@
     const { getData } = window.phoenix.utils;
     if (window.BigPicture) {
       const bpItems = document.querySelectorAll('[data-bigpicture]');
-      bpItems.forEach(bpItem => {
+      bpItems.forEach((bpItem) => {
         const userOptions = getData(bpItem, 'bigpicture');
         const defaultOptions = {
           el: bpItem,
           noLoader: true,
-          allowfullscreen: true
+          allowfullscreen: true,
         };
         const options = window._.merge(defaultOptions, userOptions);
 
@@ -432,7 +432,7 @@
       this.element = element;
       this.option = {
         displayNoneClassName: 'd-none',
-        ...option
+        ...option,
       };
       elementMap.set(this.element, this);
     }
@@ -453,8 +453,8 @@
 
     getSelectedRows() {
       return Array.from(this.bulkSelectRows)
-        .filter(row => row.checked)
-        .map(row => getData(row, 'bulk-select-row'));
+        .filter((row) => row.checked)
+        .map((row) => getData(row, 'bulk-select-row'));
     }
 
     attachNodes() {
@@ -485,7 +485,7 @@
 
           this.removeBulkCheck();
 
-          this.bulkSelectRows.forEach(el => {
+          this.bulkSelectRows.forEach((el) => {
             const rowCheck = new DomNode(el);
             rowCheck.checked = false;
             rowCheck.setAttribute('checked', false);
@@ -494,7 +494,7 @@
         }
 
         this.toggleDisplay();
-        this.bulkSelectRows.forEach(el => {
+        this.bulkSelectRows.forEach((el) => {
           el.checked = this.element.checked;
         });
       });
@@ -502,7 +502,7 @@
 
     clickRowCheckbox() {
       // Handle click event in checkbox of each row
-      this.bulkSelectRows.forEach(el => {
+      this.bulkSelectRows.forEach((el) => {
         const rowCheck = new DomNode(el);
         rowCheck.on('click', () => {
           if (this.element.indeterminate !== 'indeterminate') {
@@ -515,12 +515,12 @@
             this.replacedElement.addClass(this.option.displayNoneClassName);
           }
 
-          if ([...this.bulkSelectRows].every(element => element.checked)) {
+          if ([...this.bulkSelectRows].every((element) => element.checked)) {
             this.element.indeterminate = false;
             this.element.setAttribute('indeterminate', false);
           }
 
-          if ([...this.bulkSelectRows].every(element => !element.checked)) {
+          if ([...this.bulkSelectRows].every((element) => !element.checked)) {
             this.removeBulkCheck();
             this.toggleDisplay();
           }
@@ -547,7 +547,7 @@
     deselectAll(replacedElement, actions) {
       this.removeBulkCheck();
       this.toggleDisplay(replacedElement, actions);
-      this.bulkSelectRows.forEach(el => {
+      this.bulkSelectRows.forEach((el) => {
         el.checked = false;
         el.removeAttribute('checked');
       });
@@ -558,7 +558,7 @@
     const bulkSelects = document.querySelectorAll('[data-bulk-select]');
 
     if (bulkSelects.length) {
-      bulkSelects.forEach(el => {
+      bulkSelects.forEach((el) => {
         const bulkSelect = new BulkSelect(el);
         bulkSelect.init();
       });
@@ -576,8 +576,8 @@
     responsiveOptions
   ) => {
     const { breakpoints, resize } = window.phoenix.utils;
-    const handleResize = options => {
-      Object.keys(options).forEach(item => {
+    const handleResize = (options) => {
+      Object.keys(options).forEach((item) => {
         if (window.innerWidth > breakpoints[item]) {
           chart.setOption(options[item]);
         }
@@ -626,8 +626,8 @@
 
   const echartTabs = document.querySelectorAll('[data-tab-has-echarts]');
   if (echartTabs) {
-    echartTabs.forEach(tab => {
-      tab.addEventListener('shown.bs.tab', e => {
+    echartTabs.forEach((tab) => {
+      tab.addEventListener('shown.bs.tab', (e) => {
         const el = e.target;
         const { hash } = el;
         const id = hash || el.dataset.bsTarget;
@@ -649,7 +649,7 @@
     const { getColor, getData, getDates } = window.phoenix.utils;
 
     const $echartBasicCharts = document.querySelectorAll('[data-echarts]');
-    $echartBasicCharts.forEach($echartBasicChart => {
+    $echartBasicCharts.forEach(($echartBasicChart) => {
       const userOptions = getData($echartBasicChart, 'echarts');
       const chart = window.echarts.init($echartBasicChart);
       const getDefaultOptions = () => ({
@@ -662,7 +662,7 @@
           textStyle: { color: getColor('light-text-emphasis') },
           borderWidth: 1,
           transitionDuration: 0,
-          extraCssText: 'z-index: 1000'
+          extraCssText: 'z-index: 1000',
         },
         xAxis: {
           type: 'category',
@@ -675,31 +675,31 @@
           boundaryGap: false,
           axisLine: {
             show: true,
-            lineStyle: { color: getColor('secondary-bg') }
+            lineStyle: { color: getColor('secondary-bg') },
           },
           axisTick: {
-            show: false
+            show: false,
           },
           axisLabel: {
-            formatter: value => window.dayjs(value).format('DD MMM'),
+            formatter: (value) => window.dayjs(value).format('DD MMM'),
             interval: 6,
             showMinLabel: true,
             showMaxLabel: true,
-            color: getColor('secondary-color')
-          }
+            color: getColor('secondary-color'),
+          },
         },
         yAxis: {
           show: false,
           type: 'value',
-          boundaryGap: false
+          boundaryGap: false,
         },
         series: [
           {
             type: 'bar',
-            symbol: 'none'
-          }
+            symbol: 'none',
+          },
         ],
-        grid: { left: 22, right: 22, top: 0, bottom: 20 }
+        grid: { left: 22, right: 22, top: 0, bottom: 20 },
       });
       echartSetOption(chart, userOptions, getDefaultOptions);
     });
@@ -713,55 +713,57 @@
 
     if (window.Choices) {
       const elements = document.querySelectorAll('[data-choices]');
-      elements.forEach(item => {
+      elements.forEach((item) => {
         const userOptions = getData(item, 'options');
         const choices = new window.Choices(item, {
           itemSelectText: '',
           addItems: true,
           allowHTML: true,
-          ...userOptions
+          ...userOptions,
         });
 
         const needsValidation = document.querySelectorAll('.needs-validation');
 
-        needsValidation.forEach(validationItem => {
+        needsValidation.forEach((validationItem) => {
           const selectFormValidation = () => {
-            validationItem.querySelectorAll('.choices').forEach(choicesItem => {
-              const singleSelect = choicesItem.querySelector(
-                '.choices__list--single'
-              );
-              const multipleSelect = choicesItem.querySelector(
-                '.choices__list--multiple'
-              );
+            validationItem
+              .querySelectorAll('.choices')
+              .forEach((choicesItem) => {
+                const singleSelect = choicesItem.querySelector(
+                  '.choices__list--single'
+                );
+                const multipleSelect = choicesItem.querySelector(
+                  '.choices__list--multiple'
+                );
 
-              if (choicesItem.querySelector('[required]')) {
-                if (singleSelect) {
-                  if (
-                    singleSelect
-                      .querySelector('.choices__item--selectable')
-                      ?.getAttribute('data-value') !== ''
-                  ) {
-                    choicesItem.classList.remove('invalid');
-                    choicesItem.classList.add('valid');
-                  } else {
-                    choicesItem.classList.remove('valid');
-                    choicesItem.classList.add('invalid');
+                if (choicesItem.querySelector('[required]')) {
+                  if (singleSelect) {
+                    if (
+                      singleSelect
+                        .querySelector('.choices__item--selectable')
+                        ?.getAttribute('data-value') !== ''
+                    ) {
+                      choicesItem.classList.remove('invalid');
+                      choicesItem.classList.add('valid');
+                    } else {
+                      choicesItem.classList.remove('valid');
+                      choicesItem.classList.add('invalid');
+                    }
                   }
-                }
-                // ----- for multiple select only ----------
-                if (multipleSelect) {
-                  if (choicesItem.getElementsByTagName('option').length) {
-                    choicesItem.classList.remove('invalid');
-                    choicesItem.classList.add('valid');
-                  } else {
-                    choicesItem.classList.remove('valid');
-                    choicesItem.classList.add('invalid');
+                  // ----- for multiple select only ----------
+                  if (multipleSelect) {
+                    if (choicesItem.getElementsByTagName('option').length) {
+                      choicesItem.classList.remove('invalid');
+                      choicesItem.classList.add('valid');
+                    } else {
+                      choicesItem.classList.remove('valid');
+                      choicesItem.classList.add('invalid');
+                    }
                   }
-                }
 
-                // ------ select end ---------------
-              }
-            });
+                  // ------ select end ---------------
+                }
+              });
           };
 
           validationItem.addEventListener('submit', () => {
@@ -787,7 +789,7 @@
 
     const copyButtons = document.querySelectorAll('[data-copy]');
 
-    copyButtons.forEach(button => {
+    copyButtons.forEach((button) => {
       const tooltip = new window.bootstrap.Tooltip(button);
 
       button.addEventListener('mouseover', () => tooltip.show());
@@ -813,13 +815,13 @@
     const { getData } = window.phoenix.utils;
     if (window.countUp) {
       const countups = document.querySelectorAll('[data-countup]');
-      countups.forEach(node => {
+      countups.forEach((node) => {
         const { endValue, ...options } = getData(node, 'countup');
         const countUp = new window.countUp.CountUp(node, endValue, {
           duration: 4,
           // suffix: '+',
 
-          ...options
+          ...options,
         });
         if (!countUp.error) {
           countUp.start();
@@ -862,7 +864,7 @@
     const navbarArea = document.querySelector('[data-dropdown-on-hover]');
 
     if (navbarArea) {
-      navbarArea.addEventListener('mouseover', e => {
+      navbarArea.addEventListener('mouseover', (e) => {
         if (
           e.target?.classList.contains('dropdown-toggle') &&
           !e.target.parentNode.className.includes('dropdown-inside') &&
@@ -901,30 +903,30 @@
       DZ_ERROR_MESSAGE: '.dz-error-message',
       DZ_PREVIEW: '.dz-preview',
       DZ_PROGRESS: '.dz-preview .dz-preview-cover .dz-progress',
-      DZ_PREVIEW_COVER: '.dz-preview .dz-preview-cover'
+      DZ_PREVIEW_COVER: '.dz-preview .dz-preview-cover',
     };
 
     const ClassName = {
       DZ_FILE_PROCESSING: 'dz-file-processing',
       DZ_FILE_COMPLETE: 'dz-file-complete',
       DZ_COMPLETE: 'dz-complete',
-      DZ_PROCESSING: 'dz-processing'
+      DZ_PROCESSING: 'dz-processing',
     };
 
     const DATA_KEY = {
-      OPTIONS: 'options'
+      OPTIONS: 'options',
     };
 
     const Events = {
       ADDED_FILE: 'addedfile',
       REMOVED_FILE: 'removedfile',
-      COMPLETE: 'complete'
+      COMPLETE: 'complete',
     };
 
     const dropzones = document.querySelectorAll(Selector.DROPZONE);
 
     !!dropzones.length &&
-      dropzones.forEach(item => {
+      dropzones.forEach((item) => {
         let userOptions = getData(item, DATA_KEY.OPTIONS);
         userOptions = userOptions ? userOptions : {};
         const data = userOptions.data ? userOptions.data : {};
@@ -943,7 +945,7 @@
               const thisDropzone = this;
 
               if (data.length) {
-                data.forEach(v => {
+                data.forEach((v) => {
                   const mockFile = { name: v.name, size: v.size };
                   thisDropzone.options.addedfile.call(thisDropzone, mockFile);
                   thisDropzone.options.thumbnail.call(
@@ -980,7 +982,7 @@
                   node.textContent = message;
                 }
               }
-            }
+            },
           },
           userOptions
         );
@@ -1030,7 +1032,7 @@
     if (window.feather) {
       window.feather.replace({
         width: '16px',
-        height: '16px'
+        height: '16px',
       });
     }
   };
@@ -1041,7 +1043,7 @@
 
   const flatpickrInit = () => {
     const { getData } = window.phoenix.utils;
-    document.querySelectorAll('.datetimepicker').forEach(item => {
+    document.querySelectorAll('.datetimepicker').forEach((item) => {
       const userOptions = getData(item, 'options');
       window.flatpickr(item, {
         nextArrow: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z"/></svg>`,
@@ -1049,7 +1051,7 @@
         locale: {
           firstDayOfWeek: 1,
 
-          shorthand: ['S', 'M', 'T', 'W', 'T', 'F', 'S']
+          shorthand: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
         },
         monthSelectorType: 'static',
         onDayCreate: (dObj, dStr, fp, dayElem) => {
@@ -1061,7 +1063,7 @@
           }
         },
         locale: 'ko',
-        ...userOptions
+        ...userOptions,
       });
 
       // datepicker.l10n.weekdays.shorthand = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
@@ -1075,10 +1077,10 @@
   const formValidationInit = () => {
     const forms = document.querySelectorAll('.needs-validation');
 
-    forms.forEach(form => {
+    forms.forEach((form) => {
       form.addEventListener(
         'submit',
-        event => {
+        (event) => {
           if (!form.checkValidity()) {
             event.preventDefault();
             event.stopPropagation();
@@ -1106,13 +1108,13 @@
         headerToolbar: {
           left: 'prev,next today',
           center: 'title',
-          right: 'dayGridMonth,timeGridWeek,timeGridDay'
+          right: 'dayGridMonth,timeGridWeek,timeGridDay',
         },
         buttonText: {
           month: 'Month',
           week: 'Week',
-          day: 'Day'
-        }
+          day: 'Day',
+        },
       },
       option
     );
@@ -1128,7 +1130,7 @@
     const { getData } = window.phoenix.utils;
 
     const calendars = document.querySelectorAll('[data-calendar]');
-    calendars.forEach(item => {
+    calendars.forEach((item) => {
       const options = getData(item, 'calendar');
       renderCalendar(item, options);
     });
@@ -1141,7 +1143,7 @@
   const glightboxInit = () => {
     if (window.GLightbox) {
       window.GLightbox({
-        selector: '[data-gallery]'
+        selector: '[data-gallery]',
       });
     }
   };
@@ -1182,253 +1184,253 @@
             elementType: 'all',
             stylers: [
               {
-                visibility: 'off'
-              }
-            ]
+                visibility: 'off',
+              },
+            ],
           },
           {
             featureType: 'administrative',
             elementType: 'labels',
             stylers: [
               {
-                visibility: 'on'
-              }
-            ]
+                visibility: 'on',
+              },
+            ],
           },
           {
             featureType: 'administrative',
             elementType: 'labels.text.fill',
             stylers: [
               {
-                color: '#525b75'
-              }
-            ]
+                color: '#525b75',
+              },
+            ],
           },
           {
             featureType: 'administrative',
             elementType: 'labels.text.stroke',
             stylers: [
               {
-                visibility: 'off'
-              }
-            ]
+                visibility: 'off',
+              },
+            ],
           },
           {
             featureType: 'administrative',
             elementType: 'labels.icon',
             stylers: [
               {
-                visibility: 'off'
-              }
-            ]
+                visibility: 'off',
+              },
+            ],
           },
           {
             featureType: 'administrative.country',
             elementType: 'geometry.stroke',
             stylers: [
               {
-                visibility: 'on'
+                visibility: 'on',
               },
               {
-                color: '#ffffff'
-              }
-            ]
+                color: '#ffffff',
+              },
+            ],
           },
           {
             featureType: 'administrative.province',
             elementType: 'geometry.stroke',
             stylers: [
               {
-                visibility: 'off'
-              }
-            ]
+                visibility: 'off',
+              },
+            ],
           },
           {
             featureType: 'landscape',
             elementType: 'geometry',
             stylers: [
               {
-                visibility: 'on'
+                visibility: 'on',
               },
               {
-                color: '#E3E6ED'
-              }
-            ]
+                color: '#E3E6ED',
+              },
+            ],
           },
           {
             featureType: 'landscape.natural',
             elementType: 'labels',
             stylers: [
               {
-                visibility: 'off'
-              }
-            ]
+                visibility: 'off',
+              },
+            ],
           },
           {
             featureType: 'poi',
             elementType: 'all',
             stylers: [
               {
-                visibility: 'off'
-              }
-            ]
+                visibility: 'off',
+              },
+            ],
           },
           {
             featureType: 'road',
             elementType: 'all',
             stylers: [
               {
-                color: '#eff2f6'
-              }
-            ]
+                color: '#eff2f6',
+              },
+            ],
           },
           {
             featureType: 'road',
             elementType: 'labels',
             stylers: [
               {
-                visibility: 'off'
-              }
-            ]
+                visibility: 'off',
+              },
+            ],
           },
           {
             featureType: 'road.arterial',
             elementType: 'all',
             stylers: [
               {
-                visibility: 'on'
-              }
-            ]
+                visibility: 'on',
+              },
+            ],
           },
           {
             featureType: 'road.arterial',
             elementType: 'geometry',
             stylers: [
               {
-                visibility: 'on'
+                visibility: 'on',
               },
               {
-                color: '#eff2f6'
-              }
-            ]
+                color: '#eff2f6',
+              },
+            ],
           },
           {
             featureType: 'road.arterial',
             elementType: 'labels.text.fill',
             stylers: [
               {
-                visibility: 'on'
+                visibility: 'on',
               },
               {
-                color: '#9fa6bc'
-              }
-            ]
+                color: '#9fa6bc',
+              },
+            ],
           },
           {
             featureType: 'road.arterial',
             elementType: 'labels.text.stroke',
             stylers: [
               {
-                visibility: 'off'
-              }
-            ]
+                visibility: 'off',
+              },
+            ],
           },
           {
             featureType: 'road.local',
             elementType: 'geometry.fill',
             stylers: [
               {
-                visibility: 'on'
+                visibility: 'on',
               },
               {
-                color: '#eff2f6'
-              }
-            ]
+                color: '#eff2f6',
+              },
+            ],
           },
           {
             featureType: 'road.local',
             elementType: 'labels.text.fill',
             stylers: [
               {
-                visibility: 'on'
+                visibility: 'on',
               },
               {
-                color: '#9fa6bc'
-              }
-            ]
+                color: '#9fa6bc',
+              },
+            ],
           },
           {
             featureType: 'road.local',
             elementType: 'labels.text.stroke',
             stylers: [
               {
-                visibility: 'off'
-              }
-            ]
+                visibility: 'off',
+              },
+            ],
           },
           {
             featureType: 'transit',
             elementType: 'labels.icon',
             stylers: [
               {
-                visibility: 'off'
-              }
-            ]
+                visibility: 'off',
+              },
+            ],
           },
           {
             featureType: 'transit.line',
             elementType: 'geometry',
             stylers: [
               {
-                visibility: 'off'
-              }
-            ]
+                visibility: 'off',
+              },
+            ],
           },
           {
             featureType: 'transit.line',
             elementType: 'labels.text',
             stylers: [
               {
-                visibility: 'off'
-              }
-            ]
+                visibility: 'off',
+              },
+            ],
           },
           {
             featureType: 'transit.station.airport',
             elementType: 'geometry',
             stylers: [
               {
-                visibility: 'off'
-              }
-            ]
+                visibility: 'off',
+              },
+            ],
           },
           {
             featureType: 'transit.station.airport',
             elementType: 'labels',
             stylers: [
               {
-                visibility: 'off'
-              }
-            ]
+                visibility: 'off',
+              },
+            ],
           },
           {
             featureType: 'water',
             elementType: 'geometry',
             stylers: [
               {
-                color: '#F5F7FA'
-              }
-            ]
+                color: '#F5F7FA',
+              },
+            ],
           },
           {
             featureType: 'water',
             elementType: 'labels',
             stylers: [
               {
-                visibility: 'off'
-              }
-            ]
-          }
+                visibility: 'off',
+              },
+            ],
+          },
         ],
         SnazzyCustomDark: [
           {
@@ -1436,41 +1438,41 @@
             elementType: 'all',
             stylers: [
               {
-                visibility: 'off'
-              }
-            ]
+                visibility: 'off',
+              },
+            ],
           },
           {
             featureType: 'administrative',
             elementType: 'labels',
-            stylers: [{ visibility: 'on' }]
+            stylers: [{ visibility: 'on' }],
           },
           {
             featureType: 'administrative',
             elementType: 'labels.text.fill',
             stylers: [
               {
-                color: '#8a94ad'
-              }
-            ]
+                color: '#8a94ad',
+              },
+            ],
           },
           {
             featureType: 'administrative',
             elementType: 'labels.text.stroke',
             stylers: [
               {
-                visibility: 'off'
-              }
-            ]
+                visibility: 'off',
+              },
+            ],
           },
           {
             featureType: 'administrative',
             elementType: 'labels.icon',
             stylers: [
               {
-                visibility: 'off'
-              }
-            ]
+                visibility: 'off',
+              },
+            ],
           },
           {
             featureType: 'administrative.country',
@@ -1478,154 +1480,154 @@
             stylers: [
               { visibility: 'on' },
               {
-                color: '#000000'
-              }
-            ]
+                color: '#000000',
+              },
+            ],
           },
           {
             featureType: 'administrative.province',
             elementType: 'geometry.stroke',
-            stylers: [{ visibility: 'off' }]
+            stylers: [{ visibility: 'off' }],
           },
           {
             featureType: 'landscape',
             elementType: 'geometry',
-            stylers: [{ visibility: 'on' }, { color: '#222834' }]
+            stylers: [{ visibility: 'on' }, { color: '#222834' }],
           },
           {
             featureType: 'landscape.natural',
             elementType: 'labels',
-            stylers: [{ visibility: 'off' }]
+            stylers: [{ visibility: 'off' }],
           },
           {
             featureType: 'poi',
             elementType: 'all',
-            stylers: [{ visibility: 'off' }]
+            stylers: [{ visibility: 'off' }],
           },
           {
             featureType: 'road',
             elementType: 'all',
-            stylers: [{ color: '#141824' }]
+            stylers: [{ color: '#141824' }],
           },
           {
             featureType: 'road',
             elementType: 'labels',
-            stylers: [{ visibility: 'off' }]
+            stylers: [{ visibility: 'off' }],
           },
           {
             featureType: 'road.arterial',
             elementType: 'all',
             stylers: [
               {
-                visibility: 'on'
-              }
-            ]
+                visibility: 'on',
+              },
+            ],
           },
           {
             featureType: 'road.arterial',
             elementType: 'geometry',
             stylers: [
               {
-                visibility: 'on'
+                visibility: 'on',
               },
               {
-                color: '#141824'
-              }
-            ]
+                color: '#141824',
+              },
+            ],
           },
           {
             featureType: 'road.arterial',
             elementType: 'labels.text.fill',
             stylers: [
               {
-                visibility: 'on'
+                visibility: 'on',
               },
               {
-                color: '#525b75'
-              }
-            ]
+                color: '#525b75',
+              },
+            ],
           },
           {
             featureType: 'road.arterial',
             elementType: 'labels.text.stroke',
             stylers: [
               {
-                visibility: 'off'
-              }
-            ]
+                visibility: 'off',
+              },
+            ],
           },
           {
             featureType: 'road.local',
             elementType: 'geometry.fill',
             stylers: [
               {
-                visibility: 'on'
+                visibility: 'on',
               },
               {
-                color: '#141824'
-              }
-            ]
+                color: '#141824',
+              },
+            ],
           },
           {
             featureType: 'road.local',
             elementType: 'labels.text.fill',
             stylers: [
               {
-                visibility: 'on'
+                visibility: 'on',
               },
               {
-                color: '#67718A'
-              }
-            ]
+                color: '#67718A',
+              },
+            ],
           },
           {
             featureType: 'road.local',
             elementType: 'labels.text.stroke',
             stylers: [
               {
-                visibility: 'off'
-              }
-            ]
+                visibility: 'off',
+              },
+            ],
           },
           {
             featureType: 'transit',
             elementType: 'labels.icon',
-            stylers: [{ visibility: 'off' }]
+            stylers: [{ visibility: 'off' }],
           },
           {
             featureType: 'transit.line',
             elementType: 'geometry',
-            stylers: [{ visibility: 'off' }]
+            stylers: [{ visibility: 'off' }],
           },
           {
             featureType: 'transit.line',
             elementType: 'labels.text',
-            stylers: [{ visibility: 'off' }]
+            stylers: [{ visibility: 'off' }],
           },
           {
             featureType: 'transit.station.airport',
             elementType: 'geometry',
-            stylers: [{ visibility: 'off' }]
+            stylers: [{ visibility: 'off' }],
           },
           {
             featureType: 'transit.station.airport',
             elementType: 'labels',
-            stylers: [{ visibility: 'off' }]
+            stylers: [{ visibility: 'off' }],
           },
           {
             featureType: 'water',
             elementType: 'geometry',
-            stylers: [{ color: '#0f111a' }]
+            stylers: [{ color: '#0f111a' }],
           },
           {
             featureType: 'water',
             elementType: 'labels',
-            stylers: [{ visibility: 'off' }]
-          }
-        ]
+            stylers: [{ visibility: 'off' }],
+          },
+        ],
       };
 
-      $googlemaps.forEach(itm => {
+      $googlemaps.forEach((itm) => {
         const latLng = getData(itm, 'latlng').split(',');
         const markerPopup = itm.innerHTML;
         const zoom = getData(itm, 'zoom');
@@ -1639,7 +1641,7 @@
             pov,
             zoom,
             gestureHandling: 'none',
-            scrollwheel: false
+            scrollwheel: false,
           };
 
           return new window.google.maps.StreetViewPanorama(
@@ -1654,7 +1656,7 @@
           clickableIcons: false,
           zoomControl: false,
           zoomControlOptions: {
-            position: window.google.maps.ControlPosition.LEFT
+            position: window.google.maps.ControlPosition.LEFT,
           },
           scrollwheel: getData(itm, 'scrollwheel'),
           disableDefaultUI: true,
@@ -1662,12 +1664,12 @@
           styles:
             window.config.config.phoenixTheme === 'dark'
               ? mapStyles.SnazzyCustomDark
-              : mapStyles[mapStyle || 'SnazzyCustomLight']
+              : mapStyles[mapStyle || 'SnazzyCustomLight'],
         };
 
         const map = new window.google.maps.Map(mapElement, mapOptions);
         const infoWindow = new window.google.maps.InfoWindow({
-          content: markerPopup
+          content: markerPopup,
         });
 
         // Create the DIV to hold the control.
@@ -1685,7 +1687,7 @@
         const marker = new window.google.maps.Marker({
           position: new window.google.maps.LatLng(latLng[0], latLng[1]),
           // icon,
-          map
+          map,
         });
 
         marker.addListener('click', () => {
@@ -1722,7 +1724,7 @@
     const iconCopiedToastInstance = new window.bootstrap.Toast(iconCopiedToast);
 
     if (iconList) {
-      iconList.addEventListener('click', e => {
+      iconList.addEventListener('click', (e) => {
         const el = e.target;
         if (el.tagName === 'INPUT') {
           el.select();
@@ -1748,14 +1750,14 @@
       DATA_ISOTOPE: '[data-sl-isotope]',
       DATA_FILTER: '[data-filter]',
       DATA_FILER_NAV: '[data-filter-nav]',
-      DATA_GALLERY_COLUMN: '[data-gallery-column]'
+      DATA_GALLERY_COLUMN: '[data-gallery-column]',
     };
 
     const DATA_KEY = {
-      ISOTOPE: 'sl-isotope'
+      ISOTOPE: 'sl-isotope',
     };
     const ClassName = {
-      ACTIVE: 'active'
+      ACTIVE: 'active',
     };
 
     if (window.Isotope) {
@@ -1764,9 +1766,9 @@
         Selector.DATA_GALLERY_COLUMN
       );
       if (masonryItems.length) {
-        masonryItems.forEach(masonryItem => {
+        masonryItems.forEach((masonryItem) => {
           window.imagesLoaded(masonryItem, () => {
-            document.querySelectorAll(Selector.ISOTOPE_ITEM).forEach(item => {
+            document.querySelectorAll(Selector.ISOTOPE_ITEM).forEach((item) => {
               // eslint-disable-next-line no-param-reassign
               item.style.visibility = 'visible';
             });
@@ -1774,7 +1776,7 @@
             const userOptions = getData(masonryItem, DATA_KEY.ISOTOPE);
             const defaultOptions = {
               itemSelector: Selector.ISOTOPE_ITEM,
-              layoutMode: 'packery'
+              layoutMode: 'packery',
             };
 
             const options = window._.merge(defaultOptions, userOptions);
@@ -1792,17 +1794,17 @@
             const removeSeparator = () => {
               document
                 .querySelectorAll('span[class*="gallery-column-separator-"]')
-                .forEach(separatorEle => separatorEle.remove());
+                .forEach((separatorEle) => separatorEle.remove());
             };
             if (columnGallery) addSeparator();
             // --------- filter -----------------
             const filterElement = document.querySelector(
               Selector.DATA_FILER_NAV
             );
-            filterElement?.addEventListener('click', e => {
+            filterElement?.addEventListener('click', (e) => {
               const item = e.target.dataset.filter;
               isotope.arrange({ filter: item });
-              document.querySelectorAll(Selector.DATA_FILTER).forEach(el => {
+              document.querySelectorAll(Selector.DATA_FILTER).forEach((el) => {
                 el.classList.remove(ClassName.ACTIVE);
               });
               e.target.classList.add(ClassName.ACTIVE);
@@ -1844,7 +1846,7 @@
       const lists = document.querySelectorAll('[data-list]');
 
       if (lists.length) {
-        lists.forEach(el => {
+        lists.forEach((el) => {
           const bulkSelect = el.querySelector('[data-bulk-select]');
 
           let options = getData(el, 'list');
@@ -1854,8 +1856,8 @@
               ...options,
               pagination: {
                 item: `<li><button class='page' type='button'></button></li>`,
-                ...options.pagination
-              }
+                ...options.pagination,
+              },
             };
           }
 
@@ -1913,7 +1915,7 @@
           updateListControls();
 
           if (paginationButtonNext) {
-            paginationButtonNext.addEventListener('click', e => {
+            paginationButtonNext.addEventListener('click', (e) => {
               e.preventDefault();
               pageCount += 1;
               const nextInitialIndex = list.i + itemsPerPage;
@@ -1923,7 +1925,7 @@
           }
 
           if (paginationButtonPrev) {
-            paginationButtonPrev.addEventListener('click', e => {
+            paginationButtonPrev.addEventListener('click', (e) => {
               e.preventDefault();
               pageCount -= 1;
               const prevItem = list.i - itemsPerPage;
@@ -1952,7 +1954,7 @@
           }
           // numbering pagination
           if (options.pagination) {
-            el.querySelector('.pagination').addEventListener('click', e => {
+            el.querySelector('.pagination').addEventListener('click', (e) => {
               if (e.target.classList[0] === 'page') {
                 const pageNum = Number(e.target.getAttribute('data-i'));
                 if (pageNum) {
@@ -1965,8 +1967,8 @@
           // filter
           if (options.filter) {
             const { key } = options.filter;
-            listFilter.addEventListener('change', e => {
-              list.filter(item => {
+            listFilter.addEventListener('change', (e) => {
+              list.filter((item) => {
                 if (e.target.value === '') {
                   return true;
                 }
@@ -1986,7 +1988,7 @@
             const bulkSelectInstance =
               window.phoenix.BulkSelect.getInstance(bulkSelect);
             bulkSelectInstance.attachRowNodes(
-              list.items.map(item =>
+              list.items.map((item) =>
                 item.elm.querySelector('[data-bulk-select-row]')
               )
             );
@@ -1994,13 +1996,13 @@
             bulkSelect.addEventListener('change', () => {
               if (list) {
                 if (bulkSelect.checked) {
-                  list.items.forEach(item => {
+                  list.items.forEach((item) => {
                     item.elm.querySelector(
                       '[data-bulk-select-row]'
                     ).checked = true;
                   });
                 } else {
-                  list.items.forEach(item => {
+                  list.items.forEach((item) => {
                     item.elm.querySelector(
                       '[data-bulk-select-row]'
                     ).checked = false;
@@ -2017,7 +2019,7 @@
             isSearching = false;
           });
 
-          list.on('updated', item => {
+          list.on('updated', (item) => {
             if (!list.matchingItems.length) {
               pageQuantity = Math.ceil(list.size() / list.page);
             } else {
@@ -2072,7 +2074,7 @@
     const { getData } = window.phoenix.utils;
     const lotties = document.querySelectorAll('.lottie');
     if (lotties.length) {
-      lotties.forEach(item => {
+      lotties.forEach((item) => {
         const options = getData(item, 'options');
         window.bodymovin.loadAnimation({
           container: item,
@@ -2081,7 +2083,7 @@
           loop: true,
           autoplay: true,
           name: 'Hello World',
-          ...options
+          ...options,
         });
       });
     }
@@ -2096,10 +2098,10 @@
 
     if ($modals) {
       const { getData, getCookie, setCookie } = window.phoenix.utils;
-      $modals.forEach(modal => {
+      $modals.forEach((modal) => {
         const userOptions = getData(modal, 'phoenix-modal');
         const defaultOptions = {
-          autoShow: false
+          autoShow: false,
         };
         const options = window._.merge(defaultOptions, userOptions);
         if (options.autoShow) {
@@ -2122,7 +2124,7 @@
             const $autofocusEls = modal.querySelectorAll(
               '[autofocus=autofocus]'
             );
-            $autofocusEls.forEach(el => {
+            $autofocusEls.forEach((el) => {
               el.focus();
             });
           });
@@ -2145,17 +2147,17 @@
       COLLAPSE: '.collapse',
       DATA_MOVE_CONTAINER: '[data-move-container]',
       NAVBAR_NAV: '.navbar-nav',
-      NAVBAR_VERTICAL_DIVIDER: '.navbar-vertical-divider'
+      NAVBAR_VERTICAL_DIVIDER: '.navbar-vertical-divider',
     };
 
     const ClassName = {
-      FLEX_COLUMN: 'flex-column'
+      FLEX_COLUMN: 'flex-column',
     };
 
     const navbarVertical = document.querySelector(Selector.NAVBAR_VERTICAL);
     const navbarTopCombo = document.querySelector(Selector.NAVBAR_TOP_COMBO);
 
-    const moveNavContent = windowWidth => {
+    const moveNavContent = (windowWidth) => {
       const navbarVerticalBreakpoint = getBreakpoint(navbarVertical);
       const navbarTopBreakpoint = getBreakpoint(navbarTopCombo);
 
@@ -2252,17 +2254,17 @@
       NAVBAR_VERTICAL: '.navbar-vertical',
       NAVBAR_VERTICAL_TOGGLE: '.navbar-vertical-toggle',
       NAVBAR_VERTICAL_COLLAPSE: '.navbar-vertical .navbar-collapse',
-      ACTIVE_NAV_LINK: '.navbar-vertical .nav-link.active'
+      ACTIVE_NAV_LINK: '.navbar-vertical .nav-link.active',
     };
 
     const Events = {
       CLICK: 'click',
       MOUSE_OVER: 'mouseover',
       MOUSE_LEAVE: 'mouseleave',
-      NAVBAR_VERTICAL_TOGGLE: 'navbar.vertical.toggle'
+      NAVBAR_VERTICAL_TOGGLE: 'navbar.vertical.toggle',
     };
     const ClassNames = {
-      NAVBAR_VERTICAL_COLLAPSED: 'navbar-vertical-collapsed'
+      NAVBAR_VERTICAL_COLLAPSED: 'navbar-vertical-collapsed',
     };
     const navbarVerticalToggle = document.querySelector(
       Selector.NAVBAR_VERTICAL_TOGGLE
@@ -2273,7 +2275,7 @@
     );
     const activeNavLinkItem = document.querySelector(Selector.ACTIVE_NAV_LINK);
     if (navbarVerticalToggle) {
-      navbarVerticalToggle.addEventListener(Events.CLICK, e => {
+      navbarVerticalToggle.addEventListener(Events.CLICK, (e) => {
         const isNavbarVerticalCollapsed = getItemFromStore(
           'phoenixIsNavbarVerticalCollapsed',
           false
@@ -2356,11 +2358,11 @@
         md: 768,
         lg: 992,
         xl: 1200,
-        xxl: 1540
+        xxl: 1540,
       };
 
       window.addEventListener('resize', () => {
-        offcanvases.forEach(offcanvas => {
+        offcanvases.forEach((offcanvas) => {
           const offcanvasInstance = new window.bootstrap.Offcanvas(offcanvas);
           const breakpoint = offcanvas.getAttribute('data-breakpoint');
           const breakpointValue = breakpoints[breakpoint];
@@ -2372,19 +2374,19 @@
       });
     }
 
-    const showFilterCol = offcanvasEl => {
+    const showFilterCol = (offcanvasEl) => {
       offcanvasEl.classList.add('show');
       if (!offcanvasBodyScroll) {
         document.body.style.overflow = 'hidden';
       }
     };
-    const hideFilterCol = offcanvasEl => {
+    const hideFilterCol = (offcanvasEl) => {
       offcanvasEl.classList.remove('show');
       document.body.style.removeProperty('overflow');
     };
 
     if (toggleEls) {
-      toggleEls.forEach(toggleEl => {
+      toggleEls.forEach((toggleEl) => {
         const offcanvasTarget = getData(toggleEl, 'phoenix-target');
         const offcanvasTargetEl = document.querySelector(offcanvasTarget);
         const closeBtn = offcanvasTargetEl.querySelectorAll(
@@ -2394,14 +2396,14 @@
           showFilterCol(offcanvasTargetEl);
         });
         if (closeBtn) {
-          closeBtn.forEach(el => {
+          closeBtn.forEach((el) => {
             el.addEventListener('click', () => {
               hideFilterCol(offcanvasTargetEl);
             });
           });
         }
         if (offcanvasBackdrops) {
-          offcanvasBackdrops.forEach(offcanvasBackdrop => {
+          offcanvasBackdrops.forEach((offcanvasBackdrop) => {
             offcanvasBackdrop.addEventListener('click', () => {
               hideFilterCol(offcanvasTargetEl);
             });
@@ -2427,7 +2429,7 @@
     const picmoBtns = document.querySelectorAll('[data-picmo]');
 
     if (picmoBtns) {
-      Array.from(picmoBtns).forEach(btn => {
+      Array.from(picmoBtns).forEach((btn) => {
         const options = getData(btn, 'picmo');
 
         const picker = window.picmoPopup.createPopup(
@@ -2436,7 +2438,7 @@
             referenceElement: btn,
             triggerElement: btn,
             position: 'bottom-start',
-            showCloseButton: false
+            showCloseButton: false,
           }
         );
         btn.addEventListener('click', () => {
@@ -2445,7 +2447,7 @@
 
         const input = document.querySelector(options.inputTarget);
 
-        picker.addEventListener('emoji:select', selection => {
+        picker.addEventListener('emoji:select', (selection) => {
           if (input) {
             input.innerHTML += selection.emoji;
           }
@@ -2463,7 +2465,7 @@
       document.querySelectorAll('[data-bs-toggle="popover"]')
     );
 
-    popoverTriggerList.map(popoverTriggerEl => {
+    popoverTriggerList.map((popoverTriggerEl) => {
       return new bootstrap.Popover(popoverTriggerEl);
     });
   };
@@ -2498,7 +2500,7 @@
         '[data-product-color-variants]'
       );
 
-      const swiperInit = productImages => {
+      const swiperInit = (productImages) => {
         const productSwiper = productDetailsEl.querySelector(
           '[data-products-swiper]'
         );
@@ -2510,7 +2512,7 @@
         const thumbEl = document.getElementById(thumbTarget);
 
         let slides = '';
-        productImages.forEach(img => {
+        productImages.forEach((img) => {
           slides += `
           <div class='swiper-slide '>
             <img class='w-100' src=${img} alt="">
@@ -2520,7 +2522,7 @@
         productSwiper.innerHTML = `<div class='swiper-wrapper'>${slides}</div>`;
 
         let thumbSlides = '';
-        productImages.forEach(img => {
+        productImages.forEach((img) => {
           thumbSlides += `
           <div class='swiper-slide '>
             <div class="product-thumb-container p-2 p-sm-3 p-xl-2">
@@ -2537,12 +2539,12 @@
           direction: getThubmnailDirection(),
           breakpoints: {
             768: {
-              spaceBetween: 100
+              spaceBetween: 100,
             },
             992: {
-              spaceBetween: 16
-            }
-          }
+              spaceBetween: 16,
+            },
+          },
         });
 
         const swiperNav = productSwiper.querySelector('.swiper-nav');
@@ -2555,18 +2557,18 @@
           ...options,
           navigation: {
             nextEl: swiperNav?.querySelector('.swiper-button-next'),
-            prevEl: swiperNav?.querySelector('.swiper-button-prev')
+            prevEl: swiperNav?.querySelector('.swiper-button-prev'),
           },
           thumbs: {
-            swiper: thumbSwiper
-          }
+            swiper: thumbSwiper,
+          },
         });
       };
 
       const colorVariants =
         productColorVariantConatiner.querySelectorAll('[data-variant]');
 
-      colorVariants.forEach(variant => {
+      colorVariants.forEach((variant) => {
         if (variant.classList.contains('active')) {
           swiperInit(getData(variant, 'products-images'));
           colorVariantEl.innerHTML = getData(variant, 'variant');
@@ -2575,14 +2577,14 @@
 
         variant.addEventListener('click', () => {
           swiperInit(productImages);
-          colorVariants.forEach(colorVariant => {
+          colorVariants.forEach((colorVariant) => {
             colorVariant.classList.remove('active');
           });
           variant.classList.add('active');
           colorVariantEl.innerHTML = getData(variant, 'variant');
         });
       });
-      productQuantityInputEl.addEventListener('change', e => {
+      productQuantityInputEl.addEventListener('change', (e) => {
         if (e.target.value == '') {
           e.target.value = 0;
         }
@@ -2598,25 +2600,25 @@
     const Selector = {
       DATA_QUANTITY_BTN: '[data-quantity] [data-type]',
       DATA_QUANTITY: '[data-quantity]',
-      DATA_QUANTITY_INPUT: '[data-quantity] input[type="number"]'
+      DATA_QUANTITY_INPUT: '[data-quantity] input[type="number"]',
     };
 
     const Events = {
-      CLICK: 'click'
+      CLICK: 'click',
     };
 
     const Attributes = {
-      MIN: 'min'
+      MIN: 'min',
     };
 
     const DataKey = {
-      TYPE: 'type'
+      TYPE: 'type',
     };
 
     const quantities = document.querySelectorAll(Selector.DATA_QUANTITY_BTN);
 
-    quantities.forEach(quantity => {
-      quantity.addEventListener(Events.CLICK, e => {
+    quantities.forEach((quantity) => {
+      quantity.addEventListener(Events.CLICK, (e) => {
         const el = e.currentTarget;
         const type = getData(el, DataKey.TYPE);
         const numberInput = el
@@ -2664,10 +2666,10 @@
       '#222834',
       '#3E465B',
       '#6E7891',
-      '#9FA6BC'
+      '#9FA6BC',
     ];
 
-    randomColorElements.forEach(el => {
+    randomColorElements.forEach((el) => {
       const userColors = getData(el, 'random-color');
       let colors;
       if (Array.isArray(userColors)) {
@@ -2676,7 +2678,7 @@
         colors = [...defaultColors];
       }
 
-      el.addEventListener('click', e => {
+      el.addEventListener('click', (e) => {
         const randomColor =
           colors[Math.floor(Math.random() * (colors.length - 1))];
         e.target.value = randomColor;
@@ -2697,7 +2699,7 @@
     const { getData, getItemFromStore } = window.phoenix.utils;
     const raters = document.querySelectorAll('[data-rater]');
 
-    raters.forEach(rater => {
+    raters.forEach((rater) => {
       const options = {
         reverse: getItemFromStore('phoenixIsRTL'),
         starSize: 32,
@@ -2707,7 +2709,7 @@
           this.setRating(rating);
           done();
         },
-        ...getData(rater, 'rater')
+        ...getData(rater, 'rater'),
       };
 
       return window.raterJs(options);
@@ -2726,7 +2728,7 @@
       NAVBAR: '[data-navbar]',
       DROPDOWN: '[data-more-item]',
       CATEGORY_LIST: '[data-category-list]',
-      CATEGORY_BUTTON: '[data-category-btn]'
+      CATEGORY_BUTTON: '[data-category-btn]',
     };
 
     const navbarEl = document.querySelector(Selector.NAVBAR);
@@ -2743,7 +2745,7 @@
       let totalItemsWidth = 0;
       dropdown.style.display = 'none';
 
-      elements.forEach(item => {
+      elements.forEach((item) => {
         const itemWidth = item.clientWidth;
 
         totalItemsWidth = totalItemsWidth + itemWidth;
@@ -2765,7 +2767,7 @@
         '.dropdown-menu .nav-link'
       );
 
-      dropdownMenu.forEach(item => {
+      dropdownMenu.forEach((item) => {
         item.classList.remove('nav-link');
         item.classList.add('dropdown-item');
       });
@@ -2781,8 +2783,8 @@
         const navElements = navbarEl.querySelectorAll(Selector.NAV_ITEM);
         const dropElements = navbarEl.querySelectorAll(Selector.CATEGORY_LIST);
 
-        navElements.forEach(item => item.removeAttribute('style'));
-        dropElements.forEach(item => (item.innerHTML = ''));
+        navElements.forEach((item) => item.removeAttribute('style'));
+        dropElements.forEach((item) => (item.innerHTML = ''));
         navbar();
         // hideDropdown();
       });
@@ -2807,25 +2809,25 @@
       DROPDOWN_MENU: '.dropdown-menu',
       SEARCH_BOX: '.search-box',
       SEARCH_INPUT: '.search-input',
-      SEARCH_TOGGLE: '[data-bs-toggle="search"]'
+      SEARCH_TOGGLE: '[data-bs-toggle="search"]',
     };
 
     const ClassName = {
-      SHOW: 'show'
+      SHOW: 'show',
     };
 
     const Attribute = {
-      ARIA_EXPANDED: 'aria-expanded'
+      ARIA_EXPANDED: 'aria-expanded',
     };
 
     const Events = {
       CLICK: 'click',
       FOCUS: 'focus',
       SHOW_BS_DROPDOWN: 'show.bs.dropdown',
-      SEARCH_CLOSE: 'search.close'
+      SEARCH_CLOSE: 'search.close',
     };
 
-    const hideSearchSuggestion = searchArea => {
+    const hideSearchSuggestion = (searchArea) => {
       const el = searchArea.querySelector(Selectors.SEARCH_TOGGLE);
       const dropdownMenu = searchArea.querySelector(Selectors.DROPDOWN_MENU);
       if (!el || !dropdownMenu) return;
@@ -2841,7 +2843,7 @@
       searchAreas.forEach(hideSearchSuggestion);
     };
 
-    searchAreas.forEach(searchArea => {
+    searchAreas.forEach((searchArea) => {
       const input = searchArea.querySelector(Selectors.SEARCH_INPUT);
       const btnDropdownClose = searchArea.querySelector(
         Selectors.SEARCH_DISMISS
@@ -2864,7 +2866,7 @@
       });
 
       btnDropdownClose &&
-        btnDropdownClose.addEventListener(Events.CLICK, e => {
+        btnDropdownClose.addEventListener(Events.CLICK, (e) => {
           hideSearchSuggestion(searchArea);
           input.value = '';
           const event = new CustomEvent(Events.SEARCH_CLOSE);
@@ -2872,7 +2874,7 @@
         });
     });
 
-    document.querySelectorAll(Selectors.DROPDOWN_TOGGLE).forEach(dropdown => {
+    document.querySelectorAll(Selectors.DROPDOWN_TOGGLE).forEach((dropdown) => {
       dropdown.addEventListener(Events.SHOW_BS_DROPDOWN, () => {
         hideAllSearchAreas();
       });
@@ -2888,7 +2890,7 @@
       document.querySelectorAll('.scrollbar-overlay')
     );
 
-    scrollEl.forEach(el => {
+    scrollEl.forEach((el) => {
       return new window.SimpleBar(el);
     });
   };
@@ -2905,7 +2907,7 @@
     const defaultOptions = {
       animation: 150,
       group: {
-        name: 'shared'
+        name: 'shared',
       },
       delay: 100,
       delayOnTouchOnly: true, // useful for mobile touch
@@ -2915,10 +2917,10 @@
       },
       onEnd() {
         document.body.classList.remove('sortable-dragging');
-      }
+      },
     };
 
-    sortableEl.forEach(el => {
+    sortableEl.forEach((el) => {
       const userOptions = getData(el, 'sortable');
       const options = window._.merge(defaultOptions, userOptions);
 
@@ -2938,7 +2940,7 @@
       supportChatcontainer?.classList.add('show');
     }
     if (supportChatBtn) {
-      supportChatBtn.forEach(item => {
+      supportChatBtn.forEach((item) => {
         item.addEventListener('click', () => {
           supportChat.classList.toggle('show-chat');
 
@@ -2963,7 +2965,7 @@
       '.swiper-theme-container'
     );
     if (swiperContainers) {
-      swiperContainers.forEach(swiperContainer => {
+      swiperContainers.forEach((swiperContainer) => {
         const swiper = swiperContainer.querySelector('[data-swiper]');
         const options = getData(swiper, 'swiper');
         const thumbsOptions = options.thumb;
@@ -2971,7 +2973,7 @@
         if (thumbsOptions) {
           const thumbImages = swiper.querySelectorAll('img');
           let slides = '';
-          thumbImages.forEach(img => {
+          thumbImages.forEach((img) => {
             slides += `
           <div class='swiper-slide'>
             <img class='img-fluid rounded mt-2' src=${img.src} alt=''/>
@@ -2997,11 +2999,11 @@
           ...options,
           navigation: {
             nextEl: swiperNav?.querySelector('.swiper-button-next'),
-            prevEl: swiperNav?.querySelector('.swiper-button-prev')
+            prevEl: swiperNav?.querySelector('.swiper-button-prev'),
           },
           thumbs: {
-            swiper: thumbsInit
-          }
+            swiper: thumbsInit,
+          },
         });
         const gallerySlider = document.querySelector('.swiper-slider-gallery');
         if (gallerySlider) {
@@ -3020,11 +3022,11 @@
   /* eslint-disable */
   const { config } = window.config;
 
-  const initialDomSetup = element => {
+  const initialDomSetup = (element) => {
     const { getData, getItemFromStore, getSystemTheme } = window.phoenix.utils;
     if (!element) return;
 
-    element.querySelectorAll('[data-theme-control]').forEach(el => {
+    element.querySelectorAll('[data-theme-control]').forEach((el) => {
       const inputDataAttributeValue = getData(el, 'theme-control');
       const localStorageValue = getItemFromStore(inputDataAttributeValue);
 
@@ -3109,12 +3111,12 @@
     });
   };
 
-  const changeTheme = element => {
+  const changeTheme = (element) => {
     const { getData, getItemFromStore, getSystemTheme } = window.phoenix.utils;
 
     element
       .querySelectorAll('[data-theme-control = "phoenixTheme"]')
-      .forEach(el => {
+      .forEach((el) => {
         const inputDataAttributeValue = getData(el, 'theme-control');
         const localStorageValue = getItemFromStore(inputDataAttributeValue);
 
@@ -3140,10 +3142,10 @@
       });
   };
 
-  const handleThemeDropdownIcon = value => {
+  const handleThemeDropdownIcon = (value) => {
     document
       .querySelectorAll('[data-theme-dropdown-toggle-icon]')
-      .forEach(el => {
+      .forEach((el) => {
         el.classList.toggle(
           'd-none',
           value !== el.getAttribute('data-theme-dropdown-toggle-icon')
@@ -3161,7 +3163,7 @@
     //   getData
     // );
 
-    const handlePageUrl = el => {
+    const handlePageUrl = (el) => {
       const pageUrl = getData(el, 'page-url');
       if (pageUrl) {
         window.location.replace(pageUrl);
@@ -3177,7 +3179,7 @@
     const supportChat = document.querySelector('.support-chat-container');
     initialDomSetup(themeController.node);
 
-    themeController.on('click', e => {
+    themeController.on('click', (e) => {
       const target = new DomNode(e.target);
 
       if (target.data('theme-control')) {
@@ -3193,7 +3195,7 @@
         // config.hasOwnProperty(control) && setItemToStore(control, value);
         config.hasOwnProperty(control) &&
           window.config.set({
-            [control]: value
+            [control]: value,
           });
 
         const params = new URLSearchParams(window.location.search);
@@ -3212,7 +3214,7 @@
             //   value === 'dark' ? 'add' : 'remove'
             // ]('dark');
             const clickControl = new CustomEvent('clickControl', {
-              detail: { control, value }
+              detail: { control, value },
             });
             e.currentTarget.dispatchEvent(clickControl);
             changeTheme(themeController.node);
@@ -3250,7 +3252,7 @@
             {
               // localStorage.setItem('phoenixIsRTL', target.node.checked);
               window.config.set({
-                phoenixIsRTL: target.node.checked
+                phoenixIsRTL: target.node.checked,
               });
               window.location.reload();
             }
@@ -3297,7 +3299,7 @@
 
     if (window.tinymce) {
       // const wrapper = document.querySelector('.tox-sidebar-wrap');
-      tinymces.forEach(tinymceEl => {
+      tinymces.forEach((tinymceEl) => {
         const userOptions = getData(tinymceEl, 'tinymce');
         const options = merge(
           {
@@ -3328,7 +3330,7 @@
               { name: 'history', items: ['undo', 'redo'] },
               {
                 name: 'formatting',
-                items: ['bold', 'italic', 'underline', 'strikethrough']
+                items: ['bold', 'italic', 'underline', 'strikethrough'],
               },
               {
                 name: 'alignment',
@@ -3336,13 +3338,13 @@
                   'alignleft',
                   'aligncenter',
                   'alignright',
-                  'alignjustify'
-                ]
+                  'alignjustify',
+                ],
               },
               { name: 'list', items: ['numlist', 'bullist'] },
-              { name: 'link', items: ['link'] }
+              { name: 'link', items: ['link'] },
             ],
-            setup: editor => {
+            setup: (editor) => {
               editor.on('focus', () => {
                 const wraper = document.querySelector('.tox-sidebar-wrap');
                 wraper.classList.add('editor-focused');
@@ -3351,7 +3353,7 @@
                 const wraper = document.querySelector('.tox-sidebar-wrap');
                 wraper.classList.remove('editor-focused');
               });
-            }
+            },
           },
           userOptions
         );
@@ -3364,7 +3366,7 @@
           'clickControl',
           ({ detail: { control } }) => {
             if (control === 'phoenixTheme') {
-              tinymces.forEach(tinymceEl => {
+              tinymces.forEach((tinymceEl) => {
                 const instance = window.tinymce.get(tinymceEl.id);
                 instance.dom.addStyle(
                   `.mce-content-body{
@@ -3386,7 +3388,7 @@
 
   const toastInit = () => {
     const toastElList = [].slice.call(document.querySelectorAll('.toast'));
-    toastElList.map(toastEl => new bootstrap.Toast(toastEl));
+    toastElList.map((toastEl) => new bootstrap.Toast(toastEl));
 
     const liveToastBtn = document.getElementById('liveToastBtn');
 
@@ -3413,8 +3415,8 @@
     );
 
     if (stopPropagationElements) {
-      stopPropagationElements.forEach(el => {
-        el.addEventListener('click', e => {
+      stopPropagationElements.forEach((el) => {
+        el.addEventListener('click', (e) => {
           e.stopPropagation();
         });
       });
@@ -3427,11 +3429,11 @@
         '[data-todo-offcanvas-toogle]'
       );
 
-      offcanvasToggles.forEach(toggle => {
+      offcanvasToggles.forEach((toggle) => {
         const target = getData(toggle, 'todo-offcanvas-target');
         const offcanvasEl = todoList.querySelector(`#${target}`);
         const todoOffcanvas = new window.bootstrap.Offcanvas(offcanvasEl, {
-          backdrop: true
+          backdrop: true,
         });
         toggle.addEventListener('click', () => {
           todoOffcanvas.show();
@@ -3449,9 +3451,9 @@
     );
 
     tooltipTriggerList.map(
-      tooltipTriggerEl =>
+      (tooltipTriggerEl) =>
         new bootstrap.Tooltip(tooltipTriggerEl, {
-          trigger: 'hover'
+          trigger: 'hover',
         })
     );
   };
@@ -3471,19 +3473,19 @@
       CONFIRM_PASSWORD_INPUT: '[data-wizard-confirm-password]',
       NEXT_BTN: '[data-wizard-next-btn]',
       PREV_BTN: '[data-wizard-prev-btn]',
-      FOOTER: '[data-wizard-footer]'
+      FOOTER: '[data-wizard-footer]',
     };
 
     const events = {
       SUBMIT: 'submit',
       SHOW: 'show.bs.tab',
       SHOWN: 'shown.bs.tab',
-      CLICK: 'click'
+      CLICK: 'click',
     };
 
     const wizards = document.querySelectorAll(selectors.WIZARDS);
 
-    wizards.forEach(wizard => {
+    wizards.forEach((wizard) => {
       const tabToggleButtonEl = wizard.querySelectorAll(
         selectors.TOGGLE_BUTTON_EL
       );
@@ -3494,14 +3496,15 @@
       );
       const nextButton = wizard.querySelector(selectors.NEXT_BTN);
       const prevButton = wizard.querySelector(selectors.PREV_BTN);
+      const completeButton = wizard.querySelector('[data-wizard-complete-btn]');
       const wizardFooter = wizard.querySelector(selectors.FOOTER);
       const submitEvent = new Event(events.SUBMIT, {
         bubbles: true,
-        cancelable: true
+        cancelable: true,
       });
       const hasWizardModal = wizard.hasAttribute('data-wizard-modal-disabled');
 
-      const tabs = Array.from(tabToggleButtonEl).map(item => {
+      const tabs = Array.from(tabToggleButtonEl).map((item) => {
         return window.bootstrap.Tab.getOrCreateInstance(item);
       });
       // console.log({ tabs });
@@ -3509,8 +3512,8 @@
       let count = 0;
       let showEvent = null;
 
-      forms.forEach(form => {
-        form.addEventListener(events.SUBMIT, e => {
+      forms.forEach((form) => {
+        form.addEventListener(events.SUBMIT, (e) => {
           e.preventDefault();
           if (form.classList.contains('needs-validation')) {
             if (passwordInput && confirmPasswordInput) {
@@ -3545,7 +3548,7 @@
 
       if (tabToggleButtonEl.length) {
         tabToggleButtonEl.forEach((item, index) => {
-          item.addEventListener(events.SHOW, e => {
+          item.addEventListener(events.SHOW, (e) => {
             const step = getData(item, 'wizard-step');
             showEvent = e;
             if (step > count) {
@@ -3556,7 +3559,7 @@
             count = index;
             // can't go back tab
             if (count === tabToggleButtonEl.length - 1 && !hasWizardModal) {
-              tabToggleButtonEl.forEach(tab => {
+              tabToggleButtonEl.forEach((tab) => {
                 tab.setAttribute('data-bs-toggle', 'modal');
                 tab.setAttribute('data-bs-target', '#error-modal');
               });
@@ -3577,11 +3580,21 @@
             }
 
             // card footer remove at last step
-            if (count > tabToggleButtonEl.length - 2) {
-              wizardFooter.classList.add('d-none');
+            // if (count > tabToggleButtonEl.length - 2) {
+            //   wizardFooter.classList.add('d-none');
+            // } else {
+            //   wizardFooter.classList.remove('d-none');
+            // }
+
+            // 마지막 단계일 때 버튼 전환
+            if (count === tabToggleButtonEl.length - 1) {
+              if (nextButton) nextButton.classList.add('d-none');
+              if (completeButton) completeButton.classList.remove('d-none');
             } else {
-              wizardFooter.classList.remove('d-none');
+              if (nextButton) nextButton.classList.remove('d-none');
+              if (completeButton) completeButton.classList.add('d-none');
             }
+
             // prev-button removing
             if (prevButton) {
               if (count > 0 && count !== tabToggleButtonEl.length - 1) {
@@ -3612,7 +3625,7 @@
       const offcanvas =
         window.bootstrap.Offcanvas?.getOrCreateInstance(offcanvasEle);
 
-      triggerEls.forEach(el => {
+      triggerEls.forEach((el) => {
         el.addEventListener('click', () => {
           offcanvas.hide();
         });
@@ -3620,9 +3633,9 @@
     }
 
     if (filterEles) {
-      filterEles.forEach(el => {
+      filterEles.forEach((el) => {
         if (el.classList.contains('active')) {
-          faqSubcategoryTabs.forEach(item => {
+          faqSubcategoryTabs.forEach((item) => {
             if (
               !item.classList.contains(
                 el.getAttribute('data-category-filter')
@@ -3634,7 +3647,7 @@
           });
         }
         el.addEventListener('click', () => {
-          faqSubcategoryTabs.forEach(item => {
+          faqSubcategoryTabs.forEach((item) => {
             if (el.getAttribute('data-category-filter') === 'all') {
               item.classList.remove('d-none');
             } else if (
@@ -3660,7 +3673,7 @@
       window.addEventListener('load', () => inputFields[0].focus());
       const totalInputLength = 6;
       inputFields.forEach((input, index) => {
-        input.addEventListener('keyup', e => {
+        input.addEventListener('keyup', (e) => {
           const { value } = e.target;
           if (value) {
             [...value].slice(0, totalInputLength).forEach((char, charIndex) => {
@@ -3699,7 +3712,7 @@
       '[data-tab-map-container]'
     );
     if (mapboxContainers) {
-      mapboxContainers.forEach(mapboxContainer => {
+      mapboxContainers.forEach((mapboxContainer) => {
         window.mapboxgl.accessToken =
           'pk.eyJ1IjoidGhlbWV3YWdvbiIsImEiOiJjbGhmNW5ybzkxcmoxM2RvN2RmbW1nZW90In0.hGIvQ890TYkZ948MVrsMIQ';
 
@@ -3714,18 +3727,18 @@
           const styles = {
             default: 'mapbox://styles/mapbox/light-v11',
             light: 'mapbox://styles/themewagon/clj57pads001701qo25756jtw',
-            dark: 'mapbox://styles/themewagon/cljzg9juf007x01pk1bepfgew'
+            dark: 'mapbox://styles/themewagon/cljzg9juf007x01pk1bepfgew',
           };
 
           const map = new window.mapboxgl.Map({
             ...options,
             container: 'mapbox',
-            style: styles[window.config.config.phoenixTheme]
+            style: styles[window.config.config.phoenixTheme],
           });
 
           if (options.center) {
             new window.mapboxgl.Marker({
-              color: getColor('danger')
+              color: getColor('danger'),
             })
               .setLngLat(options.center)
               .addTo(map);
@@ -3741,7 +3754,7 @@
             );
           }
 
-          mapContainerTab.forEach(ele => {
+          mapContainerTab.forEach((ele) => {
             ele.addEventListener('shown.bs.tab', () => {
               map.resize();
             });
@@ -3765,13 +3778,13 @@
   const typedTextInit = () => {
     const typedTexts = document.querySelectorAll('.typed-text');
     if (typedTexts.length && window.Typed) {
-      typedTexts.forEach(typedText => {
+      typedTexts.forEach((typedText) => {
         return new window.Typed(typedText, {
           strings: getData(typedText, 'typedText'),
           typeSpeed: 70,
           backSpeed: 70,
           loop: true,
-          backDelay: 1000
+          backDelay: 1000,
         });
       });
     }
@@ -3784,7 +3797,7 @@
   const priceTierFormInit = () => {
     const priceTierForms = document.querySelectorAll('[data-form-price-tier]');
     if (priceTierForms) {
-      priceTierForms.forEach(priceTierForm => {
+      priceTierForms.forEach((priceTierForm) => {
         const priceToggler = priceTierForm.querySelector('[data-price-toggle]');
         const pricings = priceTierForm.querySelectorAll('[data-pricing]');
         const bottomOption = priceTierForm.querySelector(
@@ -3792,10 +3805,10 @@
         );
 
         const pricingCollapse = new window.bootstrap.Collapse(bottomOption, {
-          toggle: false
+          toggle: false,
         });
 
-        priceToggler.addEventListener('change', e => {
+        priceToggler.addEventListener('change', (e) => {
           pricings[0].checked = true;
           if (e.target.checked) {
             priceTierForm.classList.add('active');
@@ -3804,8 +3817,8 @@
             pricingCollapse.hide();
           }
         });
-        pricings.forEach(pricing => {
-          pricing.addEventListener('change', e => {
+        pricings.forEach((pricing) => {
+          pricing.addEventListener('change', (e) => {
             if (e.target.value === 'paid') {
               pricingCollapse.show();
             } else {
@@ -3824,7 +3837,7 @@
     const { getData } = window.phoenix.utils;
     if (window.noUiSlider) {
       const elements = document.querySelectorAll('[data-nouislider]');
-      elements.forEach(item => {
+      elements.forEach((item) => {
         const userOptions = getData(item, 'nouislider');
         const sliderValues = getData(item, 'nouislider-values');
         let defaultOptions;
@@ -3840,8 +3853,8 @@
               },
               from(value) {
                 return sliderValues.indexOf(value);
-              }
-            }
+              },
+            },
           };
         } else {
           defaultOptions = {
@@ -3849,7 +3862,7 @@
             connect: [true, false],
             step: 1,
             range: { min: [0], max: [100] },
-            tooltips: true
+            tooltips: true,
           };
         }
         const options = window._.merge(defaultOptions, userOptions);
@@ -3863,9 +3876,9 @@
     const collapseBtn = document.querySelector('[data-btn-collapse-all]');
     if (collapseParent) {
       const collapseElements = collapseParent.querySelectorAll('.collapse');
-      collapseElements.forEach(ele => {
+      collapseElements.forEach((ele) => {
         const collapse = window.bootstrap.Collapse.getOrCreateInstance(ele, {
-          toggle: false
+          toggle: false,
         });
         collapseBtn.addEventListener('click', () => {
           collapse.hide();
@@ -3915,7 +3928,7 @@
       }
     };
 
-    document.addEventListener('mouseover', e => {
+    document.addEventListener('mouseover', (e) => {
       if (e.target.closest('[data-play-on-hover]')) {
         const video = e.target.closest('[data-play-on-hover]');
         playVideo(video, null, null);
@@ -3925,7 +3938,7 @@
       }
     });
 
-    document.addEventListener('mouseout', e => {
+    document.addEventListener('mouseout', (e) => {
       if (e.target.closest('[data-play-on-hover]')) {
         const video = e.target.closest('[data-play-on-hover]');
         pauseVideo(video, null, null);
@@ -3935,7 +3948,7 @@
       }
     });
 
-    document.addEventListener('touchstart', e => {
+    document.addEventListener('touchstart', (e) => {
       if (e.target.closest('[data-play-on-hover]')) {
         const video = e.target.closest('[data-play-on-hover]');
         playVideo(video, null, null);
@@ -3945,7 +3958,7 @@
       }
     });
 
-    document.addEventListener('touchend', e => {
+    document.addEventListener('touchend', (e) => {
       if (e.target.closest('[data-play-on-hover]')) {
         const video = e.target.closest('[data-play-on-hover]');
         pauseVideo(video, null, null);
@@ -3955,7 +3968,7 @@
       }
     });
 
-    document.addEventListener('click', e => {
+    document.addEventListener('click', (e) => {
       if (e.target.closest('[data-video-controller]')) {
         const controller = e.target.closest('[data-video-controller]');
         const container = controller.closest('[data-play-on-container-hover]');
@@ -3974,7 +3987,7 @@
     const videoContainers = document.querySelectorAll(
       '[data-play-on-container-hover]'
     );
-    videoContainers.forEach(container => {
+    videoContainers.forEach((container) => {
       const video = container.querySelector('[data-play-on-hover]');
       const controller = container.querySelector('[data-video-controller]');
       if (controller) {
@@ -3991,7 +4004,7 @@
   const passwordToggleInit = () => {
     const passwords = document.querySelectorAll('[data-password]');
     if (passwords) {
-      passwords.forEach(password => {
+      passwords.forEach((password) => {
         const passwordInput = password.querySelector('[data-password-input]');
         const passwordToggler = password.querySelector(
           '[data-password-toggle]'
@@ -4016,7 +4029,7 @@
     const Events = {
       CHANGE: 'change',
       SHOW_BS_COLLAPSE: 'show.bs.collapse',
-      HIDE_BS_COLLAPSE: 'hide.bs.collapse'
+      HIDE_BS_COLLAPSE: 'hide.bs.collapse',
     };
 
     const Selector = {
@@ -4027,7 +4040,7 @@
       TOGGLE_ELEMENT: "[data-bs-toggle='collapse']",
       INPUT: 'input',
       TREEVIEW_LIST_ITEM: '.treeview-list-item',
-      CHILD_SELECTOR: ':scope > li > .collapse.collapse-show'
+      CHILD_SELECTOR: ':scope > li > .collapse.collapse-show',
     };
 
     const ClassName = {
@@ -4039,15 +4052,15 @@
       COLLAPSE_HIDDEN: 'collapse-hidden',
       TREEVIEW_ROW: 'treeview-row',
       TREEVIEW_ROW_ODD: 'treeview-row-odd',
-      TREEVIEW_ROW_EVEN: 'treeview-row-even'
+      TREEVIEW_ROW_EVEN: 'treeview-row-even',
     };
 
     const treeviews = document.querySelectorAll(Selector.TREEVIEW);
 
-    const makeStriped = treeview => {
+    const makeStriped = (treeview) => {
       const tags = Array.from(treeview.querySelectorAll(Selector.TREEVIEW_ROW));
 
-      const uTags = tags.filter(tag => {
+      const uTags = tags.filter((tag) => {
         let result = true;
         while (tag.parentElement) {
           if (tag.parentElement.classList.contains(ClassName.COLLAPSE_HIDDEN)) {
@@ -4070,7 +4083,7 @@
     };
 
     if (treeviews.length) {
-      treeviews.forEach(treeview => {
+      treeviews.forEach((treeview) => {
         const options = getData(treeview, 'options');
         const striped = options?.striped;
         const select = options?.select;
@@ -4086,17 +4099,17 @@
           treeview.querySelectorAll(Selector.TREEVIEW_LIST_ITEM)
         );
 
-        collapseListItem.forEach(item => {
+        collapseListItem.forEach((item) => {
           const wholeRow = document.createElement('div');
           wholeRow.setAttribute('class', ClassName.TREEVIEW_ROW);
           item.prepend(wholeRow);
         });
-        collapseElementList.forEach(collapse => {
+        collapseElementList.forEach((collapse) => {
           const collapseId = collapse.id;
           if (!striped) {
             collapse.classList.add(ClassName.TREEVIEW_BORDER);
           }
-          collapse.addEventListener(Events.SHOW_BS_COLLAPSE, e => {
+          collapse.addEventListener(Events.SHOW_BS_COLLAPSE, (e) => {
             e.target.classList.remove(ClassName.COLLAPSE_HIDDEN);
             e.target.classList.add(ClassName.COLLAPSE_SHOW);
             if (striped) {
@@ -4104,7 +4117,7 @@
             }
           });
 
-          collapse.addEventListener(Events.HIDE_BS_COLLAPSE, e => {
+          collapse.addEventListener(Events.HIDE_BS_COLLAPSE, (e) => {
             e.target.classList.add(ClassName.COLLAPSE_HIDDEN);
             e.target.classList.remove(ClassName.COLLAPSE_SHOW);
 
@@ -4137,10 +4150,10 @@
               }
               collapse = collapse.parentElement;
             }
-            parents.forEach(collapseEl => {
+            parents.forEach((collapseEl) => {
               // eslint-disable-next-line no-new
               new window.bootstrap.Collapse(collapseEl, {
-                show: true
+                show: true,
               });
             });
           }
@@ -4149,13 +4162,13 @@
             const inputElement = treeview.querySelector(
               `input[data-target='#${collapseId}']`
             );
-            inputElement.addEventListener(Events.CHANGE, e => {
+            inputElement.addEventListener(Events.CHANGE, (e) => {
               const childInputElements = Array.from(
                 treeview
                   .querySelector(`#${collapseId}`)
                   .querySelectorAll(Selector.INPUT)
               );
-              childInputElements.forEach(input => {
+              childInputElements.forEach((input) => {
                 input.checked = e.target.checked;
               });
             });
@@ -4244,7 +4257,7 @@
 
   var phoenix = {
     utils,
-    BulkSelect
+    BulkSelect,
   };
 
   return phoenix;
