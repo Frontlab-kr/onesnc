@@ -645,7 +645,7 @@
 
       <div class="content">
         <div class="one-title">
-          <h2 class="mb-2 lh-sm">퀴즈 등록</h2>
+          <h2 class="mb-2 lh-sm">게시판 관리</h2>
         </div>
         <div class="card">
           <div class="card-body">
@@ -654,13 +654,87 @@
                 <form>
                   <div class="row">
                     <div class="col-md-12">
-                      <label class="form-label">퀴즈명</label>
+                      <label class="form-label"
+                        >게시판명 <span class="text-danger">*</span></label
+                      >
                       <div>
                         <input
                           type="text"
                           class="form-control"
-                          placeholder="퀴즈명을 입력하세요"
+                          placeholder="게시판명을 입력하세요"
                         />
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">게시판보기 유형</label>
+                      <div class="d-flex gap-4">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            checked="checked"
+                          />
+                          <label class="form-check-label" for="">
+                            리스트
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">권한설정 </label>
+                      <div class="d-flex gap-4">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            checked="checked"
+                          />
+                          <label class="form-check-label" for=""> 회원 </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" />
+                          <label class="form-check-label" for="">
+                            비회원
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">파일첨부 </label>
+                      <div class="d-flex gap-4">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            checked="checked"
+                          />
+                          <label class="form-check-label" for=""> 사용 </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" />
+                          <label class="form-check-label" for="">
+                            사용안함
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">댓글 사용여부 </label>
+                      <div class="d-flex gap-4">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            checked="checked"
+                          />
+                          <label class="form-check-label" for=""> 사용 </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" />
+                          <label class="form-check-label" for="">
+                            사용안함
+                          </label>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -681,222 +755,277 @@
             </div>
           </div>
         </div>
-        <div class="row mt-3">
-          <div class="col-4">
-            <div class="card">
-              <div class="card-body">
-                <div class="one-contents">
-                  <div class="one-form">
-                    <form
-                      id="fm_site_info"
-                      enctype="multipart/form-data"
-                      method="post"
-                    >
-                      <button
-                        class="btn btn-subtle-primary w-100"
-                        type="button"
-                      >
-                        문항추가
-                        <span
-                          class="fas fa-plus ms-1"
-                          data-fa-transform="shrink-3"
-                        >
-                        </span>
-                      </button>
-                      <div class="row mt-4">
-                        <div class="col-md-12">
-                          <div class="d-flex flex-column gap-2">
-                            <div class="d-flex align-items-center gap-1">
-                              <input
-                                type="text"
-                                class="form-control"
-                                name="question"
-                              />
-                              <button
-                                class="border-0 bg-transparent"
-                                type="button"
-                              >
-                                <i
-                                  class="uil uil-setting fs-6 text-secondary-emphasis"
-                                ></i>
-                              </button>
-                            </div>
-                            <div class="d-flex align-items-center gap-1">
-                              <input
-                                type="text"
-                                class="form-control"
-                                name="question"
-                              />
-                              <button
-                                class="border-0 bg-transparent"
-                                type="button"
-                              >
-                                <i
-                                  class="uil uil-setting fs-6 text-secondary-emphasis"
-                                ></i>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
+        <div class="card mt-4">
+          <div class="card-body">
+            <div class="d-flex justify-content-end gap-2 mb-4">
+              <button class="btn btn-phoenix-primary" type="button">
+                <span
+                  class="fas fa-plus me-1"
+                  data-fa-transform="shrink-3"
+                ></span>
+                게시판 추가
+              </button>
             </div>
-          </div>
-          <div class="col-8">
-            <div class="card">
-              <div class="card-body">
-                <div class="one-contents">
-                  <div class="one-form">
-                    <form
-                      id="fm_site_info"
-                      enctype="multipart/form-data"
-                      method="post"
-                    >
-                      <div class="row">
-                        <div class="col-md-12">
-                          <label class="form-label">질문명 </label>
-                          <div>
-                            <input
-                              type="text"
-                              class="form-control"
-                              name="question"
-                              placeholder="질문을 입력하세요"
-                              v-model="question.question"
-                            />
-                          </div>
-                        </div>
-                        <div class="col-md-12">
-                          <label class="form-label">지문명</label>
-                          <div>
-                            <textarea
-                              class="form-control"
-                              rows="5"
-                              cols="5"
-                              name="addText"
-                              v-model="question.addText"
-                            ></textarea>
-                          </div>
-                        </div>
-                        <div class="col-md-12">
-                          <label class="form-label">퀴즈유형 </label>
-                          <div class="d-flex gap-4">
-                            <div class="form-check">
-                              <input
-                                type="radio"
-                                class="form-check-input"
-                                name="questionType"
-                                value="CHOICE"
-                                v-model="question.questionType"
-                                v-on:change="quizTypeChange"
-                                id="questionType01"
-                                checked
-                              />
-                              <label
-                                class="form-check-label"
-                                for="questionType01"
-                                >객관식</label
-                              >
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-12">
-                          <div
-                            class="d-flex align-items-center justify-content-between mt-2 mb-3"
-                          >
-                            <label class="form-label p-0 mt-1">문항입력</label>
-                            <button
-                              type="button"
-                              class="btn btn-sm btn-phoenix-success"
-                              v-on:click="addExample"
-                            >
-                              문항추가
-                            </button>
-                          </div>
-                          <div class="d-flex flex-column gap-2">
-                            <div class="d-flex align-items-center gap-3">
-                              <input type="radio" class="form-check-input" />
-                              <input
-                                type="text"
-                                class="form-control"
-                                placeholder=""
-                              />
-                              <button
-                                class="btn-close"
-                                type="button"
-                                aria-label="Close"
-                              ></button>
-                            </div>
-                            <div class="d-flex align-items-center gap-3">
-                              <input type="radio" class="form-check-input" />
-                              <input
-                                type="text"
-                                class="form-control"
-                                placeholder=""
-                              />
-                              <button
-                                class="btn-close"
-                                type="button"
-                                aria-label="Close"
-                              ></button>
-                            </div>
-                            <div class="d-flex align-items-center gap-3">
-                              <input type="radio" class="form-check-input" />
-                              <input
-                                type="text"
-                                class="form-control"
-                                placeholder=""
-                              />
-                              <button
-                                class="btn-close"
-                                type="button"
-                                aria-label="Close"
-                              ></button>
-                            </div>
-                            <div class="d-flex align-items-center gap-3">
-                              <input type="radio" class="form-check-input" />
-                              <input
-                                type="text"
-                                class="form-control"
-                                placeholder=""
-                              />
-                              <button
-                                class="btn-close"
-                                type="button"
-                                aria-label="Close"
-                              ></button>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-12">
-                          <label class="form-label">문제풀이 해설</label>
-                          <div>
-                            <textarea
-                              class="form-control"
-                              rows="5"
-                              cols="5"
-                              v-model="question.questionComment"
-                            ></textarea>
-                          </div>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
+            <div class="table-responsive">
+              <table class="table text-center" id="tb_bbs_list">
+                <thead>
+                  <tr>
+                    <th>번호</th>
+                    <th>게시판아이디</th>
+                    <th>게시판명</th>
+                    <th>게시글</th>
+                    <th>등록일</th>
+                    <th>속성</th>
+                    <th>사용여부</th>
+                    <th>삭제</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-id="BBS_00005">
+                    <td>5</td>
+                    <td>BBS_00005</td>
+                    <td>
+                      <a
+                        href="javascript:void(0)"
+                        onclick="goBbsContentsList('BBS_00005')"
+                        role="button"
+                      >
+                        test</a
+                      >
+                    </td>
+                    <td>0</td>
+                    <td>2024.07.24</td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-phoenix-secondary"
+                        onclick="openEditForm('BBS_00005');"
+                      >
+                        <i class="fa fas fa-cog me-1"></i> 설정
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-phoenix-success"
+                        onclick="changeUseYn('BBS_00005','N')"
+                      >
+                        사용
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-phoenix-secondary"
+                        onclick="deleteBbs('BBS_00005');"
+                      >
+                        <i class="fa fa-trash me-1"></i> 삭제
+                      </button>
+                    </td>
+                  </tr>
+                  <tr data-id="BBS_00004">
+                    <td>4</td>
+                    <td>BBS_00004</td>
+                    <td>
+                      <a
+                        href="javascript:void(0)"
+                        onclick="goBbsContentsList('BBS_00004')"
+                        role="button"
+                      >
+                        홍보자료실</a
+                      >
+                    </td>
+                    <td>1</td>
+                    <td>2021.09.27</td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-phoenix-secondary"
+                        onclick="openEditForm('BBS_00004');"
+                      >
+                        <i class="fa fas fa-cog me-1"></i> 설정
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-phoenix-secondary"
+                        onclick="changeUseYn('BBS_00004','Y')"
+                      >
+                        사용안함
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-phoenix-secondary"
+                        onclick="deleteBbs('BBS_00004');"
+                      >
+                        <i class="fa fa-trash me-1"></i> 삭제
+                      </button>
+                    </td>
+                  </tr>
+                  <tr data-id="BBS_00003">
+                    <td>3</td>
+                    <td>BBS_00003</td>
+                    <td>
+                      <a
+                        href="javascript:void(0)"
+                        onclick="goBbsContentsList('BBS_00003')"
+                        role="button"
+                      >
+                        자료실</a
+                      >
+                    </td>
+                    <td>1</td>
+                    <td>2021.07.16</td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-phoenix-secondary"
+                        onclick="openEditForm('BBS_00003');"
+                      >
+                        <i class="fa fas fa-cog me-1"></i> 설정
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-phoenix-success"
+                        onclick="changeUseYn('BBS_00003','N')"
+                      >
+                        사용
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-phoenix-secondary"
+                        onclick="deleteBbs('BBS_00003');"
+                      >
+                        <i class="fa fa-trash me-1"></i> 삭제
+                      </button>
+                    </td>
+                  </tr>
+                  <tr data-id="BBS_00002">
+                    <td>2</td>
+                    <td>BBS_00002</td>
+                    <td>
+                      <a
+                        href="javascript:void(0)"
+                        onclick="goBbsContentsList('BBS_00002')"
+                        role="button"
+                      >
+                        교육일정</a
+                      >
+                    </td>
+                    <td>1</td>
+                    <td>2021.07.16</td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-phoenix-secondary"
+                        onclick="openEditForm('BBS_00002');"
+                      >
+                        <i class="fa fas fa-cog me-1"></i> 설정
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-phoenix-success"
+                        onclick="changeUseYn('BBS_00002','N')"
+                      >
+                        사용
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-phoenix-secondary"
+                        onclick="deleteBbs('BBS_00002');"
+                      >
+                        <i class="fa fa-trash me-1"></i> 삭제
+                      </button>
+                    </td>
+                  </tr>
+                  <tr data-id="BBS_00001">
+                    <td>1</td>
+                    <td>BBS_00001</td>
+                    <td>
+                      <a
+                        href="javascript:void(0)"
+                        onclick="goBbsContentsList('BBS_00001')"
+                        role="button"
+                      >
+                        공지사항</a
+                      >
+                    </td>
+                    <td>2</td>
+                    <td>2021.06.25</td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-phoenix-secondary"
+                        onclick="openEditForm('BBS_00001');"
+                      >
+                        <i class="fa fas fa-cog me-1"></i> 설정
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-phoenix-success"
+                        onclick="changeUseYn('BBS_00001','N')"
+                      >
+                        사용
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-phoenix-secondary"
+                        onclick="deleteBbs('BBS_00001');"
+                      >
+                        <i class="fa fa-trash me-1"></i> 삭제
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
-        <div class="one-contents-button">
-          <div class="one-contents-button-start"></div>
-          <div class="one-contents-button-end">
-            <button type="button" class="btn btn-lg btn-outline-primary">
-              취소
-            </button>
-            <button type="button" class="btn btn-lg btn-primary">등록</button>
-          </div>
+        <div class="d-flex justify-content-center mt-4">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination mb-0">
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  <span class="fas fa-chevron-left"> </span>
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">2</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">3</a>
+              </li>
+              <li class="page-item active" aria-current="page">
+                <a class="page-link" href="#">4</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">5</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  <span class="fas fa-chevron-right"></span
+                ></a>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
 
