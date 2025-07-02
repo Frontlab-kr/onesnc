@@ -655,282 +655,62 @@
 
       <div class="content">
         <div class="one-title">
-          <h2 class="mb-2 lh-sm">기본설정</h2>
-          <p>사이트의 기본 정보를 입력하는 곳입니다.</p>
+          <h2 class="mb-2 lh-sm">알람설정</h2>
         </div>
         <div class="card">
           <div class="card-body">
             <div class="one-contents">
               <div class="one-form">
-                <form
-                  id="fm_site_info"
-                  enctype="multipart/form-data"
-                  method="post"
-                >
+                <form>
                   <div class="row">
                     <div class="col-md-6">
-                      <label class="form-label">사이트 이름 </label>
+                      <label class="form-label">SMS 발신번호 </label>
                       <div>
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder=""
-                          name="siteName"
-                        />
+                        <input type="text" class="form-control" />
                       </div>
                     </div>
                     <div class="col-md-6">
-                      <label class="form-label">사이트 영문이름 </label>
-                      <div>
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder=""
-                          name="siteEngName"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label">관리자 E-mail </label>
-                      <div>
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder=""
-                          name="adminEmail"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label">사이트 URL </label>
-                      <div>
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder=""
-                          name="siteUrl"
-                          readonly
-                        />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label">파비콘 설정 </label>
-                      <div>
-                        <input
-                          type="file"
-                          class="form-control"
-                          name="faviconUpload"
-                        />
-                        <div id="previewFavicon"></div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label">로고 이미지 </label>
-                      <div>
-                        <input
-                          type="file"
-                          class="form-control"
-                          placeholder=""
-                          name="logoUpload"
-                        />
-                        <div id="previewLogo"></div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label">모바일 </label>
+                      <label class="form-label">SMS 사용 여부 </label>
                       <div class="d-flex gap-4">
                         <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            id="mobileUseYn01"
-                            type="radio"
-                            name="mobileUseYn"
-                            value="Y"
-                          />
-                          <label class="form-check-label" for="mobileUseYn01"
-                            >사용</label
-                          >
+                          <input class="form-check-input" type="radio" />
+                          <label class="form-check-label" for="">사용</label>
                         </div>
                         <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            id="mobileUseYn02"
-                            type="radio"
-                            name="mobileUseYn"
-                            value="N"
-                            checked="checked"
-                          />
-                          <label class="form-check-label" for="mobileUseYn02"
+                          <input class="form-check-input" type="radio" />
+                          <label class="form-check-label" for=""
                             >사용안함</label
                           >
                         </div>
                       </div>
                     </div>
                     <div class="col-md-6">
-                      <label class="form-label">본인 인증</label>
-                      <div class="d-flex gap-4">
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            id="userAuthUseYn01"
-                            type="radio"
-                            name="userAuthUseYn"
-                            value="Y"
-                          />
-                          <label class="form-check-label" for="userAuthUseYn01"
-                            >사용</label
-                          >
-                        </div>
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            id="userAuthUseYn02"
-                            type="radio"
-                            name="userAuthUseYn"
-                            value="N"
-                            checked="checked"
-                          />
-                          <label class="form-check-label" for="userAuthUseYn02"
-                            >사용안함</label
-                          >
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label">차시별 문자인증 </label>
-                      <div class="d-flex gap-4">
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            id="smsAuthUseYn01"
-                            type="radio"
-                            name="smsAuthUseYn"
-                            value="Y"
-                          />
-                          <label class="form-check-label" for="smsAuthUseYn01"
-                            >사용</label
-                          >
-                        </div>
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            id="smsAuthUseYn02"
-                            type="radio"
-                            name="smsAuthUseYn"
-                            value="N"
-                            checked="checked"
-                          />
-                          <label class="form-check-label" for="smsAuthUseYn02"
-                            >사용안함</label
-                          >
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6"></div>
-                    <div class="col-md-6">
-                      <label class="form-label">이용약관 </label>
+                      <label class="form-label">발신프로필키 </label>
                       <div>
-                        <button
-                          class="btn btn-phoenix-primary btn-sm"
-                          type="button"
-                          data-bs-toggle="modal"
-                          data-bs-target="#modal01"
-                        >
-                          등록
-                        </button>
+                        <input type="text" class="form-control" />
+                        <p class="m-0 mt-2 fs-9 text-danger">
+                          * 발신번호와 API KEY를 잘못등록하면, 알람 발송시
+                          오류가 발생할 수 있습니다. 정확히 확인하여
+                          입력해주세요.
+                        </p>
                       </div>
                     </div>
-                    <div class="col-md-6">
-                      <label class="form-label">개인정보 처리방침 </label>
-                      <div>
-                        <button
-                          class="btn btn-phoenix-primary btn-sm"
-                          type="button"
-                          data-bs-toggle="modal"
-                          data-bs-target="#modal01"
-                        >
-                          등록
-                        </button>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label">이메일 무단 수집 거부 </label>
-                      <div>
-                        <button
-                          class="btn btn-phoenix-primary btn-sm"
-                          type="button"
-                          data-bs-toggle="modal"
-                          data-bs-target="#modal01"
-                        >
-                          등록
-                        </button>
-                      </div>
-                    </div>
-                    <div class="col-md-6"></div>
-                    <div class="col-md-6">
-                      <label class="form-label">수강취소 </label>
-                      <div class="d-flex gap-4">
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            id="courseCancelYn01"
-                            type="radio"
-                            name="courseCancelYn"
-                            value="Y"
-                          />
-                          <label class="form-check-label" for="courseCancelYn01"
-                            >사용</label
-                          >
-                        </div>
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            id="courseCancelYn02"
-                            type="radio"
-                            name="courseCancelYn"
-                            value="N"
-                            checked="checked"
-                          />
-                          <label class="form-check-label" for="courseCancelYn02"
-                            >사용안함</label
-                          >
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label">수강후기 작성 </label>
-                      <div class="d-flex gap-4">
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            id="courseReviewWriteYn01"
-                            type="radio"
-                            name="courseReviewWriteYn"
-                            value="Y"
-                          />
-                          <label
-                            class="form-check-label"
-                            for="courseReviewWriteYn01"
-                            >사용</label
-                          >
-                        </div>
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            id="courseReviewWriteYn02"
-                            type="radio"
-                            name="courseReviewWriteYn"
-                            value="N"
-                            checked="checked"
-                          />
-                          <label
-                            class="form-check-label"
-                            for="courseReviewWriteYn02"
-                            >사용안함</label
-                          >
-                        </div>
-                      </div>
-                    </div>
+                  </div>
+                  <div class="d-flex justify-content-end gap-2 mt-4">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      style="width: 80px"
+                    >
+                      등록
+                    </button>
+                    <button
+                      class="btn btn-outline-primary"
+                      type="button"
+                      style="width: 80px"
+                    >
+                      취소
+                    </button>
                   </div>
                 </form>
               </div>
@@ -938,123 +718,156 @@
           </div>
         </div>
 
-        <div class="one-contents-button">
-          <div class="one-contents-button-start"></div>
-          <div class="one-contents-button-end">
-            <button
-              type="button"
-              class="btn btn-lg btn-primary"
-              onclick="siteInfoMd.saveSiteInfo();"
-            >
-              적용
-            </button>
-          </div>
+        <div class="one-title mt-6">
+          <h2 class="mb-2 lh-sm">메시지설정</h2>
         </div>
-      </div>
-
-      <div
-        style="
-          display: flex;
-          flex-direction: column;
-          gap: 6px;
-          position: fixed;
-          right: 0;
-          bottom: 0;
-          padding: 20px;
-          background: rgba(0, 0, 0, 0.3);
-        "
-      >
-        <button
-          class="btn btn-phoenix-primary btn-sm"
-          type="button"
-          data-bs-toggle="modal"
-          data-bs-target="#modal01"
-        >
-          등록
-        </button>
-      </div>
-
-      <div class="modal fade" id="modal01" tabindex="-1">
-        <div
-          class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg"
-        >
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">이용약관</h5>
-              <button
-                class="btn btn-close p-1"
-                type="button"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
+        <div class="card">
+          <div class="card-body">
+            <div class="one-contents">
               <div class="one-form">
-                <div class="row">
-                  <div class="col-md-12">
-                    <label class="form-label">제목</label>
-                    <div>
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder=""
-                        name="siteName"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <label class="form-label">푸터</label>
-                    <div class="d-flex gap-4">
-                      <div class="form-check">
-                        <input
-                          class="form-check-input"
-                          id="footerYn01"
-                          type="radio"
-                          name="footerYn"
-                          value="Y"
-                        />
-                        <label class="form-check-label" for="footerYn01"
-                          >사용</label
+                <form>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label class="form-label">회원가입</label>
+                      <div>
+                        <textarea class="form-control" rows="8">
+[#rc_mallNm]
+안녕하세요
+#memNm 회원님의 가입을 진심으로 축하드립니다.
+아이디 : #memId
+[#rc_mallNm] 바로가기:#Url</textarea
                         >
                       </div>
-                      <div class="form-check">
-                        <input
-                          class="form-check-input"
-                          id="footerYn02"
-                          type="radio"
-                          name="footerYn"
-                          value="N"
-                          checked="checked"
-                        />
-                        <label class="form-check-label" for="footerYn02"
-                          >사용안함</label
-                        >
+                      <div class="d-flex gap-4 mt-2">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" />
+                          <label class="form-check-label" for="">사용</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" />
+                          <label class="form-check-label" for=""
+                            >사용안함</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">비밀번호찾기</label>
+                      <div>
+                        <textarea class="form-control" rows="8">
+[#rc_mallNm]
+회원님의 비밀번호가 변경되었습니다.
+본인이 하지 않았다면 사이트를 방문해서 확인해주세요.
+[#rc_mallNm] 바로가기:#Url
+                        </textarea>
+                      </div>
+                      <div class="d-flex gap-4 mt-2">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" />
+                          <label class="form-check-label" for="">사용</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" />
+                          <label class="form-check-label" for=""
+                            >사용안함</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">수강신청</label>
+                      <div>
+                        <textarea class="form-control" rows="8">
+[#rc_mallNm]
+안녕하세요
+#memNm님의 수강신청 및 결제가 완료되었습니다.
+과정명 : #curriName
+결제금액 : #orderPrice원 
+이용해주셔서 감사합니다.
+[#rc_mallNm] 바로가기:#Url                          
+                        </textarea>
+                      </div>
+                      <div class="d-flex gap-4 mt-2">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" />
+                          <label class="form-check-label" for="">사용</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" />
+                          <label class="form-check-label" for=""
+                            >사용안함</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">1:1문의</label>
+                      <div>
+                        <textarea class="form-control" rows="8">
+[#rc_mallNm]
+#memNm님 안녕하세요.
+문의주신 1:1문의에 답변이 등록되었습니다. 
+[#rc_mallNm] 바로가기:#Url                          
+                        </textarea>
+                      </div>
+                      <div class="d-flex gap-4 mt-2">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" />
+                          <label class="form-check-label" for="">사용</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" />
+                          <label class="form-check-label" for=""
+                            >사용안함</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">학습독려</label>
+                      <div>
+                        <textarea class="form-control" rows="8">
+[#rc_mallNm]
+#memNm님의 과정을 수강해주시기 바랍니다.
+과정명 : #curriName
+진도율 : #progress 
+수강종료일 : #studyEndDate
+수강을 완료하지 못하는 경우 수료처리가 되지 않습니다. 
+[#rc_mallNm] 바로가기:#Url                          
+                        </textarea>
+                      </div>
+                      <div class="d-flex gap-4 mt-2">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" />
+                          <label class="form-check-label" for="">사용</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" />
+                          <label class="form-check-label" for=""
+                            >사용안함</label
+                          >
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-12">
-                    <label class="form-label">내용</label>
-                    <div>
-                      <textarea
-                        class="summernote required"
-                        id="summernote"
-                        name="summernote"
-                        style="height: 400px"
-                      ></textarea>
-                    </div>
+                  <div class="d-flex justify-content-end gap-2 mt-4">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      style="width: 80px"
+                    >
+                      등록
+                    </button>
+                    <button
+                      class="btn btn-outline-primary"
+                      type="button"
+                      style="width: 80px"
+                    >
+                      취소
+                    </button>
                   </div>
-                </div>
+                </form>
               </div>
-            </div>
-            <div class="modal-footer">
-              <button class="btn btn-primary" type="button">등록</button
-              ><button
-                class="btn btn-outline-primary"
-                type="button"
-                data-bs-dismiss="modal"
-              >
-                취소
-              </button>
             </div>
           </div>
         </div>

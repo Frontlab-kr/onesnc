@@ -711,6 +711,43 @@
                     <a href="ADMIN_MENU_11_1.html"> ADMIN_MENU_11_1 </a>
                   </td>
                 </tr>
+                <tr>
+                  <td>
+                    <a href="ADMIN_MENU_12.html"> ADMIN_MENU_12 </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="ADMIN_MENU_13.html"> ADMIN_MENU_13 </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="ADMIN_MENU_15.html"> ADMIN_MENU_15 </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="javascript:void(0)"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modal01"
+                    >
+                      집합교육장소등록
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="javascript:void(0)"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modal02"
+                    >
+                      집합교육장관리
+                    </a>
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -718,10 +755,10 @@
       </div>
 
       <div class="modal fade" id="modal01" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">이용약관</h5>
+              <h5 class="modal-title">집합교육장소등록</h5>
               <button
                 class="btn btn-close p-1"
                 type="button"
@@ -733,57 +770,132 @@
               <div class="one-form">
                 <div class="row">
                   <div class="col-md-12">
-                    <label class="form-label">제목</label>
+                    <label class="form-label">등록명</label>
                     <div>
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder=""
-                        name="siteName"
-                      />
+                      <input type="text" class="form-control" />
                     </div>
                   </div>
                   <div class="col-md-12">
-                    <label class="form-label">푸터</label>
-                    <div class="d-flex gap-4">
-                      <div class="form-check">
-                        <input
-                          class="form-check-input"
-                          id="footerYn01"
-                          type="radio"
-                          name="footerYn"
-                          value="Y"
-                        />
-                        <label class="form-check-label" for="footerYn01"
-                          >사용</label
-                        >
-                      </div>
-                      <div class="form-check">
-                        <input
-                          class="form-check-input"
-                          id="footerYn02"
-                          type="radio"
-                          name="footerYn"
-                          value="N"
-                          checked="checked"
-                        />
-                        <label class="form-check-label" for="footerYn02"
-                          >사용안함</label
-                        >
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <label class="form-label">내용</label>
+                    <label class="form-label">엑셀파일업로드</label>
                     <div>
-                      <textarea
-                        class="summernote required"
-                        id="summernote"
-                        name="summernote"
-                        style="height: 400px"
-                      ></textarea>
+                      <input class="form-control" id="customFile" type="file" />
+                    </div>
+                    <div class="mt-2">
+                      <a href="" class="fs-9">샘플 파일 다운로드</a>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary" type="button">등록</button
+              ><button
+                class="btn btn-outline-primary"
+                type="button"
+                data-bs-dismiss="modal"
+              >
+                취소
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="modal02" tabindex="-1">
+        <div
+          class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg"
+        >
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">집합교육장관리[오프라인명]</h5>
+              <button
+                class="btn btn-close p-1"
+                type="button"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="one-contents">
+                <div class="one-form">
+                  <form>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label class="form-label">지역</label>
+                        <div>
+                          <input type="text" class="form-control" />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">교육일</label>
+                        <div class="d-flex align-items-center gap-2">
+                          <input
+                            class="form-control datetimepicker flatpickr-input"
+                            id="timepicker2"
+                            type="text"
+                            data-options='{"mode":"range","dateFormat":"Y/m/d","disableMobile":true}'
+                            readonly="readonly"
+                          />
+                          <button
+                            class="btn btn-outline-primary btn-sm"
+                            type="button"
+                          >
+                            초기화
+                          </button>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <label class="form-label">검색어</label>
+                        <div>
+                          <input type="text" class="form-control" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-end mt-4">
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        style="width: 80px"
+                      >
+                        검색
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="mt-5 border-top">
+                <div class="table-responsive scrollbar">
+                  <table class="table text-center" id="tb_user_list">
+                    <thead>
+                      <tr>
+                        <th>NO</th>
+                        <th>시/도</th>
+                        <th>군/구</th>
+                        <th>장소</th>
+                        <th>인원</th>
+                        <th>잔여수</th>
+                        <th>일시</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>6</td>
+                        <td>서울특별시</td>
+                        <td>강남구</td>
+                        <td>테스트 과정입니다.</td>
+                        <td>10명</td>
+                        <td>0명</td>
+                        <td>2025.01.01 09:00 ~ 13:00</td>
+                        <td>
+                          <div class="d-flex gap-3">
+                            <i class="fas fa-pen"></i>
+                            <i class="fas fa-trash-alt"></i>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>

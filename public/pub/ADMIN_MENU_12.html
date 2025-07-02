@@ -102,7 +102,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav01"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -147,7 +146,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav02"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -190,7 +188,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav03"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -254,7 +251,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav04"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -318,7 +314,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav05"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -354,7 +349,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav06"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -397,7 +391,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav07"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -447,7 +440,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav08"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -483,7 +475,6 @@
                   <a
                     class="nav-link dropdown-indicator label-1"
                     href="#nav09"
-                    role="button"
                     data-bs-toggle="collapse"
                   >
                     <div class="d-flex align-items-center">
@@ -610,7 +601,6 @@
                 class="nav-link lh-1 pe-0"
                 id="navbarDropdownUser"
                 href="#!"
-                role="button"
                 data-bs-toggle="dropdown"
                 data-bs-auto-close="outside"
                 aria-haspopup="true"
@@ -655,299 +645,312 @@
 
       <div class="content">
         <div class="one-title">
-          <h2 class="mb-2 lh-sm">기본설정</h2>
-          <p>사이트의 기본 정보를 입력하는 곳입니다.</p>
+          <h2 class="mb-2 lh-sm">FAQ</h2>
         </div>
-        <div class="card">
-          <div class="card-body">
-            <div class="one-contents">
-              <div class="one-form">
-                <form
-                  id="fm_site_info"
-                  enctype="multipart/form-data"
-                  method="post"
-                >
-                  <div class="row">
-                    <div class="col-md-6">
-                      <label class="form-label">사이트 이름 </label>
-                      <div>
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder=""
-                          name="siteName"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label">사이트 영문이름 </label>
-                      <div>
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder=""
-                          name="siteEngName"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label">관리자 E-mail </label>
-                      <div>
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder=""
-                          name="adminEmail"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label">사이트 URL </label>
-                      <div>
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder=""
-                          name="siteUrl"
-                          readonly
-                        />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label">파비콘 설정 </label>
-                      <div>
-                        <input
-                          type="file"
-                          class="form-control"
-                          name="faviconUpload"
-                        />
-                        <div id="previewFavicon"></div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label">로고 이미지 </label>
-                      <div>
-                        <input
-                          type="file"
-                          class="form-control"
-                          placeholder=""
-                          name="logoUpload"
-                        />
-                        <div id="previewLogo"></div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label">모바일 </label>
-                      <div class="d-flex gap-4">
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            id="mobileUseYn01"
-                            type="radio"
-                            name="mobileUseYn"
-                            value="Y"
-                          />
-                          <label class="form-check-label" for="mobileUseYn01"
-                            >사용</label
-                          >
-                        </div>
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            id="mobileUseYn02"
-                            type="radio"
-                            name="mobileUseYn"
-                            value="N"
-                            checked="checked"
-                          />
-                          <label class="form-check-label" for="mobileUseYn02"
-                            >사용안함</label
-                          >
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label">본인 인증</label>
-                      <div class="d-flex gap-4">
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            id="userAuthUseYn01"
-                            type="radio"
-                            name="userAuthUseYn"
-                            value="Y"
-                          />
-                          <label class="form-check-label" for="userAuthUseYn01"
-                            >사용</label
-                          >
-                        </div>
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            id="userAuthUseYn02"
-                            type="radio"
-                            name="userAuthUseYn"
-                            value="N"
-                            checked="checked"
-                          />
-                          <label class="form-check-label" for="userAuthUseYn02"
-                            >사용안함</label
-                          >
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label">차시별 문자인증 </label>
-                      <div class="d-flex gap-4">
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            id="smsAuthUseYn01"
-                            type="radio"
-                            name="smsAuthUseYn"
-                            value="Y"
-                          />
-                          <label class="form-check-label" for="smsAuthUseYn01"
-                            >사용</label
-                          >
-                        </div>
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            id="smsAuthUseYn02"
-                            type="radio"
-                            name="smsAuthUseYn"
-                            value="N"
-                            checked="checked"
-                          />
-                          <label class="form-check-label" for="smsAuthUseYn02"
-                            >사용안함</label
-                          >
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6"></div>
-                    <div class="col-md-6">
-                      <label class="form-label">이용약관 </label>
-                      <div>
-                        <button
-                          class="btn btn-phoenix-primary btn-sm"
-                          type="button"
-                          data-bs-toggle="modal"
-                          data-bs-target="#modal01"
+        <div class="row">
+          <div class="col-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="one-contents">
+                  <div class="one-form">
+                    <form
+                      id="fm_site_info"
+                      enctype="multipart/form-data"
+                      method="post"
+                    >
+                      <button class="btn btn-primary w-100" type="button">
+                        카테고리 관리
+                        <span
+                          class="fas fa-cog ms-1"
+                          data-fa-transform="shrink-3"
                         >
-                          등록
-                        </button>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label">개인정보 처리방침 </label>
-                      <div>
-                        <button
-                          class="btn btn-phoenix-primary btn-sm"
-                          type="button"
-                          data-bs-toggle="modal"
-                          data-bs-target="#modal01"
-                        >
-                          등록
-                        </button>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label">이메일 무단 수집 거부 </label>
-                      <div>
-                        <button
-                          class="btn btn-phoenix-primary btn-sm"
-                          type="button"
-                          data-bs-toggle="modal"
-                          data-bs-target="#modal01"
-                        >
-                          등록
-                        </button>
-                      </div>
-                    </div>
-                    <div class="col-md-6"></div>
-                    <div class="col-md-6">
-                      <label class="form-label">수강취소 </label>
-                      <div class="d-flex gap-4">
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            id="courseCancelYn01"
-                            type="radio"
-                            name="courseCancelYn"
-                            value="Y"
-                          />
-                          <label class="form-check-label" for="courseCancelYn01"
-                            >사용</label
-                          >
-                        </div>
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            id="courseCancelYn02"
-                            type="radio"
-                            name="courseCancelYn"
-                            value="N"
-                            checked="checked"
-                          />
-                          <label class="form-check-label" for="courseCancelYn02"
-                            >사용안함</label
-                          >
+                        </span>
+                      </button>
+                      <div class="row mt-4">
+                        <div class="col-md-12">
+                          <div class="d-flex flex-column gap-2">
+                            <div class="d-flex align-items-center gap-1">
+                              <button
+                                class="btn btn-subtle-secondary w-100 text-start"
+                                type="button"
+                              >
+                                전체
+                              </button>
+                            </div>
+                            <div class="d-flex align-items-center gap-1">
+                              <button
+                                class="btn btn-subtle-primary w-100 text-start"
+                                type="button"
+                              >
+                                회원가입
+                              </button>
+                            </div>
+                            <div class="d-flex align-items-center gap-1">
+                              <button
+                                class="btn btn-subtle-secondary w-100 text-start"
+                                type="button"
+                              >
+                                결제
+                              </button>
+                            </div>
+                            <div class="d-flex align-items-center gap-1">
+                              <button
+                                class="btn btn-subtle-secondary w-100 text-start"
+                                type="button"
+                              >
+                                온라인교육
+                              </button>
+                            </div>
+                            <div class="d-flex align-items-center gap-1">
+                              <button
+                                class="btn btn-subtle-secondary w-100 text-start"
+                                type="button"
+                              >
+                                학습진행
+                              </button>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label">수강후기 작성 </label>
-                      <div class="d-flex gap-4">
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            id="courseReviewWriteYn01"
-                            type="radio"
-                            name="courseReviewWriteYn"
-                            value="Y"
-                          />
-                          <label
-                            class="form-check-label"
-                            for="courseReviewWriteYn01"
-                            >사용</label
-                          >
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-8">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <div><strong>회원가입</strong></div>
+              <button class="btn btn-primary" type="button">
+                <span
+                  class="fas fa-plus me-1"
+                  data-fa-transform="shrink-3"
+                ></span
+                >FAQ 추가
+              </button>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <div class="accordion" id="accordionExample">
+                  <div class="accordion-item border-top">
+                    <h2 class="accordion-header" id="headingOne">
+                      <button
+                        class="accordion-button"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne"
+                        aria-expanded="true"
+                        aria-controls="collapseOne"
+                      >
+                        <div>
+                          학습진행 관련 자주하는 질문
+                          <div class="mt-2 text-body-quaternary fs-9 fw-medium">
+                            2025.01.01
+                          </div>
                         </div>
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            id="courseReviewWriteYn02"
-                            type="radio"
-                            name="courseReviewWriteYn"
-                            value="N"
-                            checked="checked"
-                          />
-                          <label
-                            class="form-check-label"
-                            for="courseReviewWriteYn02"
-                            >사용안함</label
+                      </button>
+                    </h2>
+                    <div
+                      class="accordion-collapse collapse show"
+                      id="collapseOne"
+                      aria-labelledby="headingOne"
+                      data-bs-parent="#accordionExample"
+                    >
+                      <div class="accordion-body mt-2">
+                        <div class="d-flex justify-content-between gap-5">
+                          <div>
+                            학습진행 관련한 자주하는 질문 BEST 1 학습진행 관련한
+                            자주하는 질문 BEST 1학습진행 관련한 자주하는 질문
+                            BEST 1학습진행 관련한 자주하는 질문 BEST 1학습진행
+                            관련한 자주하는 질문 BEST 1학습진행 관련한 자주하는
+                            질문 BEST 1학습진행 관련한 자주하는 질문 BEST
+                            1학습진행 관련한 자주하는 질문 BEST 1학습진행 관련한
+                            자주하는 질문 BEST 1학습진행 관련한 자주하는 질문
+                            BEST 1학습진행 관련한 자주하는 질문 BEST 1학습진행
+                            관련한 자주하는 질문 BEST 1
+                          </div>
+                          <div
+                            class="text-truncate"
+                            style="min-width: 200px; max-width: 300px"
                           >
+                            <a href="" class="text-nowrap"
+                              ><i class="far fa-file"></i> 첨부파일명.svg</a
+                            >
+                          </div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-3">
+                          <div class="d-flex gap-1">
+                            <button
+                              class="btn btn-primary btn-sm"
+                              type="button"
+                            >
+                              사용
+                            </button>
+                          </div>
+                          <div class="d-flex gap-1">
+                            <button
+                              class="btn btn-primary btn-sm"
+                              type="button"
+                            >
+                              수정</button
+                            ><button
+                              class="btn btn-outline-danger btn-sm"
+                              type="button"
+                            >
+                              삭제
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </form>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo"
+                        aria-expanded="false"
+                        aria-controls="collapseTwo"
+                      >
+                        <div>
+                          학습진행 관련 자주하는 질문
+                          <div class="mt-2 text-body-quaternary fs-9 fw-medium">
+                            2025.01.01
+                          </div>
+                        </div>
+                      </button>
+                    </h2>
+                    <div
+                      class="accordion-collapse collapse"
+                      id="collapseTwo"
+                      aria-labelledby="headingTwo"
+                      data-bs-parent="#accordionExample"
+                    >
+                      <div class="accordion-body mt-2">
+                        <div class="d-flex justify-content-between gap-5">
+                          <div>
+                            학습진행 관련한 자주하는 질문 BEST 1 학습진행 관련한
+                            자주하는 질문 BEST 1학습진행 관련한 자주하는 질문
+                            BEST 1학습진행 관련한 자주하는 질문 BEST 1학습진행
+                            관련한 자주하는 질문 BEST 1학습진행 관련한 자주하는
+                            질문 BEST 1학습진행 관련한 자주하는 질문 BEST
+                            1학습진행 관련한 자주하는 질문 BEST 1학습진행 관련한
+                            자주하는 질문 BEST 1학습진행 관련한 자주하는 질문
+                            BEST 1학습진행 관련한 자주하는 질문 BEST 1학습진행
+                            관련한 자주하는 질문 BEST 1
+                          </div>
+                          <div
+                            class="text-truncate"
+                            style="min-width: 200px; max-width: 300px"
+                          >
+                            <a href="" class="text-nowrap"
+                              ><i class="far fa-file"></i> 첨부파일명.svg</a
+                            >
+                          </div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-3">
+                          <div class="d-flex gap-1">
+                            <button
+                              class="btn btn-primary btn-sm"
+                              type="button"
+                            >
+                              사용
+                            </button>
+                          </div>
+                          <div class="d-flex gap-1">
+                            <button
+                              class="btn btn-primary btn-sm"
+                              type="button"
+                            >
+                              수정</button
+                            ><button
+                              class="btn btn-outline-danger btn-sm"
+                              type="button"
+                            >
+                              삭제
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree"
+                        aria-expanded="false"
+                        aria-controls="collapseThree"
+                      >
+                        <div>
+                          학습진행 관련 자주하는 질문
+                          <div class="text-body-quaternary fs-9 fw-medium">
+                            2025.01.01
+                          </div>
+                        </div>
+                      </button>
+                    </h2>
+                    <div
+                      class="accordion-collapse collapse"
+                      id="collapseThree"
+                      aria-labelledby="headingThree"
+                      data-bs-parent="#accordionExample"
+                    >
+                      <div class="accordion-body mt-2">
+                        <div class="d-flex justify-content-between gap-5">
+                          <div>
+                            학습진행 관련한 자주하는 질문 BEST 1 학습진행 관련한
+                            자주하는 질문 BEST 1학습진행 관련한 자주하는 질문
+                            BEST 1학습진행 관련한 자주하는 질문 BEST 1학습진행
+                            관련한 자주하는 질문 BEST 1학습진행 관련한 자주하는
+                            질문 BEST 1학습진행 관련한 자주하는 질문 BEST
+                            1학습진행 관련한 자주하는 질문 BEST 1학습진행 관련한
+                            자주하는 질문 BEST 1학습진행 관련한 자주하는 질문
+                            BEST 1학습진행 관련한 자주하는 질문 BEST 1학습진행
+                            관련한 자주하는 질문 BEST 1
+                          </div>
+                          <div
+                            class="text-truncate"
+                            style="min-width: 200px; max-width: 300px"
+                          >
+                            <a href="" class="text-nowrap"
+                              ><i class="far fa-file"></i> 첨부파일명.svg</a
+                            >
+                          </div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-3">
+                          <div class="d-flex gap-1">
+                            <button
+                              class="btn btn-primary btn-sm"
+                              type="button"
+                            >
+                              사용
+                            </button>
+                          </div>
+                          <div class="d-flex gap-1">
+                            <button
+                              class="btn btn-primary btn-sm"
+                              type="button"
+                            >
+                              수정</button
+                            ><button
+                              class="btn btn-outline-danger btn-sm"
+                              type="button"
+                            >
+                              삭제
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div class="one-contents-button">
-          <div class="one-contents-button-start"></div>
-          <div class="one-contents-button-end">
-            <button
-              type="button"
-              class="btn btn-lg btn-primary"
-              onclick="siteInfoMd.saveSiteInfo();"
-            >
-              적용
-            </button>
           </div>
         </div>
       </div>
@@ -970,7 +973,7 @@
           data-bs-toggle="modal"
           data-bs-target="#modal01"
         >
-          등록
+          카테고리 관리
         </button>
       </div>
 
@@ -980,7 +983,7 @@
         >
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">이용약관</h5>
+              <h5 class="modal-title">카테고리 관리</h5>
               <button
                 class="btn btn-close p-1"
                 type="button"
@@ -989,72 +992,139 @@
               ></button>
             </div>
             <div class="modal-body">
-              <div class="one-form">
-                <div class="row">
-                  <div class="col-md-12">
-                    <label class="form-label">제목</label>
-                    <div>
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder=""
-                        name="siteName"
-                      />
+              <div class="row">
+                <div class="col-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="d-flex flex-column gap-2">
+                        <div class="d-flex align-items-center gap-1">
+                          <button
+                            class="btn btn-subtle-secondary w-100 text-start"
+                            type="button"
+                          >
+                            전체
+                          </button>
+                        </div>
+                        <div class="d-flex align-items-center gap-1">
+                          <button
+                            class="btn btn-subtle-primary w-100 text-start"
+                            type="button"
+                          >
+                            회원가입
+                          </button>
+                        </div>
+                        <div class="d-flex align-items-center gap-1">
+                          <button
+                            class="btn btn-subtle-secondary w-100 text-start"
+                            type="button"
+                          >
+                            결제
+                          </button>
+                        </div>
+                        <div class="d-flex align-items-center gap-1">
+                          <button
+                            class="btn btn-subtle-secondary w-100 text-start"
+                            type="button"
+                          >
+                            온라인교육
+                          </button>
+                        </div>
+                        <div class="d-flex align-items-center gap-1">
+                          <button
+                            class="btn btn-subtle-secondary w-100 text-start"
+                            type="button"
+                          >
+                            학습진행
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-md-12">
-                    <label class="form-label">푸터</label>
-                    <div class="d-flex gap-4">
-                      <div class="form-check">
-                        <input
-                          class="form-check-input"
-                          id="footerYn01"
-                          type="radio"
-                          name="footerYn"
-                          value="Y"
-                        />
-                        <label class="form-check-label" for="footerYn01"
-                          >사용</label
-                        >
-                      </div>
-                      <div class="form-check">
-                        <input
-                          class="form-check-input"
-                          id="footerYn02"
-                          type="radio"
-                          name="footerYn"
-                          value="N"
-                          checked="checked"
-                        />
-                        <label class="form-check-label" for="footerYn02"
-                          >사용안함</label
-                        >
-                      </div>
-                    </div>
+                </div>
+                <div class="col-8">
+                  <div
+                    class="d-flex align-items-center justify-content-between mb-2"
+                  >
+                    <div><strong>회원가입</strong></div>
+                    <button class="btn btn-primary btn-sm" type="button">
+                      <span
+                        class="fas fa-plus me-1"
+                        data-fa-transform="shrink-3"
+                      ></span
+                      >카테고리 추가
+                    </button>
                   </div>
-                  <div class="col-md-12">
-                    <label class="form-label">내용</label>
-                    <div>
-                      <textarea
-                        class="summernote required"
-                        id="summernote"
-                        name="summernote"
-                        style="height: 400px"
-                      ></textarea>
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="one-contents">
+                        <div class="one-form">
+                          <form enctype="multipart/form-data" method="post">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <label class="form-label">카테고리 명</label>
+                                <div>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="카테고리 명을 입력하세요"
+                                  />
+                                </div>
+                              </div>
+                              <div class="col-md-12">
+                                <label class="form-label">사용 여부</label>
+                                <div class="d-flex gap-4">
+                                  <div class="form-check">
+                                    <input
+                                      class="form-check-input"
+                                      type="radio"
+                                      checked="checked"
+                                    />
+                                    <label class="form-check-label" for="">
+                                      사용
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input
+                                      class="form-check-input"
+                                      type="radio"
+                                    />
+                                    <label class="form-check-label" for="">
+                                      사용안함
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="d-flex justify-content-between mt-4">
+                              <div class="d-flex gap-1">
+                                <button
+                                  class="btn btn-outline-danger btn-sm"
+                                  type="button"
+                                >
+                                  삭제
+                                </button>
+                              </div>
+                              <div class="d-flex gap-1">
+                                <button
+                                  class="btn btn-primary btn-sm"
+                                  type="button"
+                                >
+                                  수정</button
+                                ><button
+                                  class="btn btn-outline-primary btn-sm"
+                                  type="button"
+                                >
+                                  취소
+                                </button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="modal-footer">
-              <button class="btn btn-primary" type="button">등록</button
-              ><button
-                class="btn btn-outline-primary"
-                type="button"
-                data-bs-dismiss="modal"
-              >
-                취소
-              </button>
             </div>
           </div>
         </div>
