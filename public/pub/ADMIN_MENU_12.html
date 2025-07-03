@@ -996,48 +996,45 @@
                 <div class="col-4">
                   <div class="card">
                     <div class="card-body">
-                      <div class="d-flex flex-column gap-2">
-                        <div class="d-flex align-items-center gap-1">
-                          <button
+                      <ul
+                        class="d-flex flex-column gap-2 m-0 p-0"
+                        id="sortable"
+                      >
+                        <li class="d-flex align-items-center gap-1">
+                          <div
                             class="btn btn-subtle-secondary w-100 text-start"
-                            type="button"
                           >
                             전체
-                          </button>
-                        </div>
-                        <div class="d-flex align-items-center gap-1">
-                          <button
-                            class="btn btn-subtle-primary w-100 text-start"
-                            type="button"
-                          >
+                          </div>
+                        </li>
+                        <li class="d-flex align-items-center gap-1">
+                          <div class="btn btn-subtle-primary w-100 text-start">
                             회원가입
-                          </button>
-                        </div>
-                        <div class="d-flex align-items-center gap-1">
-                          <button
+                          </div>
+                        </li>
+                        <li class="d-flex align-items-center gap-1">
+                          <div
                             class="btn btn-subtle-secondary w-100 text-start"
-                            type="button"
                           >
                             결제
-                          </button>
-                        </div>
-                        <div class="d-flex align-items-center gap-1">
-                          <button
+                          </div>
+                        </li>
+                        <li class="d-flex align-items-center gap-1">
+                          <div
                             class="btn btn-subtle-secondary w-100 text-start"
-                            type="button"
                           >
                             온라인교육
-                          </button>
-                        </div>
-                        <div class="d-flex align-items-center gap-1">
-                          <button
+                          </div>
+                        </li>
+                        <li class="d-flex align-items-center gap-1">
+                          <div
                             class="btn btn-subtle-secondary w-100 text-start"
                             type="button"
                           >
-                            학습진행
-                          </button>
-                        </div>
-                      </div>
+                            학습진행1
+                          </div>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -1181,6 +1178,23 @@
       var LOGIN_USER_TYPE = 'MASTER_ADMIN';
 
       $('#navbarDropdownUser').text(LOGIN_USER_ID);
+    </script>
+
+    <!-- sortable list -->
+    <script src="http://qrdemo.onesnc.co.kr/static/global_assets/js/core/libraries/jquery_ui/interactions.min.js"></script>
+    <script src="http://qrdemo.onesnc.co.kr/static/global_assets/js/core/libraries/jquery_ui/touch.min.js"></script>
+    <script src="http://qrdemo.onesnc.co.kr/static/global_assets/js/plugins/jquery-template/jquery.tmpl.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('#sortable')
+          .sortable({
+            placeholder: '',
+            update: function (event, ui) {
+              save();
+            },
+          })
+          .disableSelection();
+      });
     </script>
   </body>
 </html>
