@@ -661,6 +661,29 @@
                   <span class="fas fa-plus ms-1" data-fa-transform="shrink-3">
                   </span>
                 </button>
+                <div class="d-flex justify-content-end gap-1 mb-2">
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary btn-sm"
+                    onclick="demo_create();"
+                  >
+                    추가
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary btn-sm"
+                    onclick="demo_rename();"
+                  >
+                    수정
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-outline-danger btn-sm"
+                    onclick="demo_delete();"
+                  >
+                    삭제
+                  </button>
+                </div>
                 <div id="tree" class="border rounded-2 p-3">
                   <ul>
                     <li data-jstree='{ "opened" : true }'>
@@ -1186,8 +1209,41 @@
 
     <script>
       $(document).ready(function () {
-        $('#tree').jstree();
+        $('#tree').jstree({
+          core: {
+            check_callback: true, // 필수!
+          },
+        });
       });
+      function demo_create() {
+        var ref = $('#tree').jstree(true),
+          sel = ref.get_selected();
+        if (!sel.length) {
+          return false;
+        }
+        sel = sel[0];
+        sel = ref.create_node(sel, { type: 'file' });
+        if (sel) {
+          ref.edit(sel);
+        }
+      }
+      function demo_rename() {
+        var ref = $('#tree').jstree(true),
+          sel = ref.get_selected();
+        if (!sel.length) {
+          return false;
+        }
+        sel = sel[0];
+        ref.edit(sel);
+      }
+      function demo_delete() {
+        var ref = $('#tree').jstree(true),
+          sel = ref.get_selected();
+        if (!sel.length) {
+          return false;
+        }
+        ref.delete_node(sel);
+      }
     </script>
 
     <script>
