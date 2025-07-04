@@ -846,6 +846,80 @@
         </div>
       </div>
 
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          position: fixed;
+          right: 0;
+          bottom: 0;
+          padding: 20px;
+          background: rgba(0, 0, 0, 0.3);
+        "
+      >
+        <button
+          class="btn btn-phoenix-primary btn-sm"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#modal01"
+        >
+          학습자 추가
+        </button>
+      </div>
+
+      <div class="modal fade" id="modal01" tabindex="-1">
+        <div
+          class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg"
+        >
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">학습자 추가</h5>
+              <button
+                class="btn btn-close p-1"
+                type="button"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="one-form">
+                <div class="row">
+                  <div class="col-md-12">
+                    <label class="form-label">아이디/이름</label>
+                    <div class="d-flex gap-2">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="아이디 또는 이름을 검색하세요."
+                      /><button
+                        class="btn btn-phoenix-primary btn-sm"
+                        type="button"
+                      >
+                        검색
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="my-4">bootstrap-duallistbox-container</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary" type="button">추가</button
+              ><button
+                class="btn btn-outline-primary"
+                type="button"
+                data-bs-dismiss="modal"
+              >
+                취소
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <script>
         var navbarTopStyle = window.config.config.phoenixNavbarTopStyle;
         var navbarTop = document.querySelector('.navbar-top');
